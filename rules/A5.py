@@ -60,7 +60,7 @@ def make_bookletspdfs(png_list, workdir):
     print "make_bookletspdfs", png_list
     pdf_list = []
     for first_png_idx in range(0, len(png_list), 4):
-        montage_cmd = [u"montage",u"-density",str(DENSITY),"-geometry",u"%sx%s+0+0" % (HALF_PAGE_PX_WIDTH, PAGE_PX_HEIGHT),u"-tile",u"2x1"]
+        montage_cmd = [u"montage",u"-limit","memory","128mb", u"-limit","map","128mb", u"-density",str(DENSITY),"-geometry",u"%sx%s+0+0" % (HALF_PAGE_PX_WIDTH, PAGE_PX_HEIGHT),u"-tile",u"2x1"]
         montage_cmd.extend(png_list[first_png_idx:first_png_idx+4])
         pdf_name = u"pdf_from_%4.4d.pdf" % (first_png_idx,)
         this_pdf = os.path.join(workdir, pdf_name)
@@ -76,7 +76,7 @@ def main():
     if len(original_pdf_list) == 0:
         usage()
         sys.exit(1)
-    workdir = tempfile.mkdtemp()
+    workdir = tempfile.mkdtemp(prefix='A5_tmp_')
     print u"Working with %s in %s" % (original_pdf_list, workdir,)
     png_list = pdf2png(original_pdf_list, workdir)
 
