@@ -1,6 +1,7 @@
 import os
 import random
 import Image
+import ImageColor
 
 class BackMaker(object):
     def __init__(self, width, height, density):
@@ -18,8 +19,13 @@ class BackMaker(object):
                 print im.format, im.size, im.mode
                 self.small_images.append(im.resize((smallw, smallh)))
 
-    def process(self, allow_rotation=False, iterations=1000, outfile='cardback.png'):
-        result = Image.new('RGBA', (self.width, self.height), (255,255,255,255))
+    def process(self, allow_rotation=False, iterations=1000,
+        outfile='cardback.png', background_color="white"):
+        try:
+            background_color= ImageColor.getrgb(background_color)
+        except ValueError:
+            background_color= (255,255,255)
+        result = Image.new('RGBA', (self.width, self.height), background_color)
         result.save('/tmp/avant.png', 'PNG')
         for iteration in range(iterations):
             for si in self.small_images:

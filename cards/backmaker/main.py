@@ -30,13 +30,16 @@ def main():
         default=os.curdir, help=_(u"Small images directory (defaults to current directory)"))
     parser.add_argument('-o', '--output', dest='outfile',
         default='cardback.png', help=_(u"Output file"))
+    parser.add_argument('-c', '--color', dest='color',
+        default='white', help=_(u"Background color (hex format [#ffffff] or color name [white], defaults to white)"))
     parser.add_argument('--iterations', type=int, dest='iterations',
         default=1000, help=_(u"Number of copies of each small image (px)"))
 
     args = parser.parse_args()
     bm = BackMaker(args.width, args.height, args.density)
     bm.load_images_from_dir(args.imgdir, args.smallwidth, args.smallheight)
-    bm.process(allow_rotation=args.rotate, iterations=args.iterations)
+    bm.process(allow_rotation=args.rotate, iterations=args.iterations,
+        background_color=args.color)
 
 if __name__ == "__main__":
     main()
