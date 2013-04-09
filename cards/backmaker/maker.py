@@ -35,3 +35,16 @@ class BackMaker(object):
                     nsi = nsi.rotate(random.randrange(360))
                 result.paste(nsi, (random.randrange(self.width+2000)-1000, random.randrange(self.height+2000)-1000), nsi)
         result.save(outfile, 'PNG')
+
+def average_color(image):
+    r,g,b = 0,0,0
+    w,h = image.size
+    img_data = image.load()
+    img_data = [[img_data[y, x] for y in xrange(w)] for x in xrange(h)]
+    for x in range(w):
+        for y in range(h):
+            temp = img_data[y][x]
+            r += temp[0]
+            g += temp[1]
+            b += temp[2]
+    return r/(w*h), g/(w*h), b/(w*h)
