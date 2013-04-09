@@ -25,7 +25,9 @@ def main():
     parser.add_argument('--smallheight', type=int, dest='smallheight',
         default=100, help=_(u"Height of the small images (px)"))
     parser.add_argument('--rotate', action='store_true', dest='rotate',
-        default=False, help=_(u"Allow rotation of the small images (px)"))
+        default=False, help=_(u"Allow rotation of the small images"))
+    parser.add_argument('--force_aspect', action='store_true', dest='force_aspect',
+        default=False, help=_(u"Force aspect of small images. The default is to respect the aspect of the original small image. With this option, you force the script to user the smallwidth AND smallheight."))
     parser.add_argument('-D', '--directory', dest='imgdir',
         default=os.curdir, help=_(u"Small images directory (defaults to current directory)"))
     parser.add_argument('-o', '--output', dest='outfile',
@@ -37,9 +39,10 @@ def main():
 
     args = parser.parse_args()
     bm = BackMaker(args.width, args.height, args.density)
-    bm.load_images_from_dir(args.imgdir, args.smallwidth, args.smallheight)
+    bm.load_images_from_dir(args.imgdir, args.smallwidth, args.smallheight,
+        keepaspect=not args.force_aspect)
     bm.process(allow_rotation=args.rotate, iterations=args.iterations,
-        background_color=args.color)
+        background_color=args.color, outfile=args.outfile)
 
 if __name__ == "__main__":
     main()
