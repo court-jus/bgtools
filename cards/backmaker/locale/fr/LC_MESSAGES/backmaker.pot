@@ -1,0 +1,37 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR ORGANIZATION
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2013-04-09 09:33+CEST\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: ENCODING\n"
+"Generated-By: pygettext.py 1.5\n"
+
+
+#: main.py:16
+msgid "Cardback maker tool"
+msgstr ""
+
+#: main.py:18
+msgid "Density (DPI)"
+msgstr ""
+
+#: main.py:20
+msgid "Generated image width (px)"
+msgstr ""
+
+#: main.py:22
+msgid "Generated image height (px)"
+msgstr ""
+
+#: main.py:24
+msgid "Small images directory (defaults to current directory)"
+msgstr ""
+

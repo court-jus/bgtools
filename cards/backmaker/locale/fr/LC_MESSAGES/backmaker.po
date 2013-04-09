@@ -1,0 +1,37 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR ORGANIZATION
+# Ghislain Lévêque <ghislain.leveque@gmail.com>, 2013.
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2013-04-09 09:33+CEST\n"
+"PO-Revision-Date: 2013-04-09 09:35+0200\n"
+"Last-Translator: Ghislain Lévêque <ghislain.leveque@gmail.com>\n"
+"Language-Team: Court-Jus\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Virtaal 0.7.1\n"
+"Generated-By: pygettext.py 1.5\n"
+
+#: main.py:16
+msgid "Cardback maker tool"
+msgstr "Utilitaire de création de dos de cartes"
+
+#: main.py:18
+msgid "Density (DPI)"
+msgstr "Densité (PPI)"
+
+#: main.py:20
+msgid "Generated image width (px)"
+msgstr "Largeur de l'image générée (px)"
+
+#: main.py:22
+msgid "Generated image height (px)"
+msgstr "Hauteur de l'image générée (px)"
+
+#: main.py:24
+msgid "Small images directory (defaults to current directory)"
+msgstr "Répertoire des petites images (répertoire courant par défaut)"
