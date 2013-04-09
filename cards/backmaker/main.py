@@ -31,7 +31,7 @@ def main():
     parser.add_argument('-o', '--output', dest='outfile',
         default='cardback.png', help=_(u"Output file"))
     parser.add_argument('-c', '--color', dest='color',
-        default='white', help=_(u"Background color (hex format [#ffffff] or color name [white], defaults to white)"))
+        default=None, help=_(u"Background color (hex format [#ffffff] or color name [white], defaults to transparent)"))
     parser.add_argument('--iterations', type=int, dest='iterations',
         default=1000, help=_(u"Number of copies of each small image (px)"))
 

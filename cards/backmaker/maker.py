@@ -20,11 +20,12 @@ class BackMaker(object):
                 self.small_images.append(im.resize((smallw, smallh)))
 
     def process(self, allow_rotation=False, iterations=1000,
-        outfile='cardback.png', background_color="white"):
-        try:
-            background_color= ImageColor.getrgb(background_color)
-        except ValueError:
-            background_color= (255,255,255)
+        outfile='cardback.png', background_color=None):
+        if background_color is not None:
+            try:
+                background_color= ImageColor.getrgb(background_color)
+            except ValueError:
+                background_color= (255,255,255)
         result = Image.new('RGBA', (self.width, self.height), background_color)
         result.save('/tmp/avant.png', 'PNG')
         for iteration in range(iterations):
