@@ -6,6 +6,12 @@ import sys
 import os
 
 DENSITY = 300.0
+"""
+To manage inner borders, play around this :
+
+convert -density 300 -chop 107x39+903+1220 -chop 107x0+1595+1220 -chop 107x0+2284+1220 -trim file.png file.png
+
+"""
 
 def crop2cards(filename, width, height, leftmargin, topmargin,
                cardwidth, cardheight):
