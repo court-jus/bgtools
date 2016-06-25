@@ -8,8 +8,8 @@ import tempfile
 import shutil
 
 DENSITY=300.0
-PAGE_WIDTH=210.0
-PAGE_HEIGHT=297.0/2.
+PAGE_WIDTH=246.0
+PAGE_HEIGHT=160.0
 INCH_TO_MM = 25.4
 PAGE_PX_WIDTH=int(((PAGE_WIDTH * DENSITY) / INCH_TO_MM))
 HALF_PAGE_PX_WIDTH=PAGE_PX_WIDTH / 2
@@ -48,21 +48,25 @@ def compute_pnglist(png_list, empty_img):
     new_png_list = []
     while len(my_png_list) % 4 != 0:
         my_png_list.append(empty_img)
+    even = True
 
     while len(my_png_list) > 0:
-        new_png_list.append(my_png_list.pop())
-        new_png_list.append(my_png_list.pop(0))
-        new_png_list.append(my_png_list.pop(0))
-        new_png_list.append(my_png_list.pop())
+        if even:
+            new_png_list.append(my_png_list.pop())
+            new_png_list.append(my_png_list.pop(0))
+        else:
+            new_png_list.append(my_png_list.pop(0))
+            new_png_list.append(my_png_list.pop())
+        even = not even
     return new_png_list
 
 def make_bookletspdfs(png_list, workdir):
     print "make_bookletspdfs", png_list
     pdf_list = []
-    for first_png_idx in range(0, len(png_list), 4):
+    for first_png_idx in range(0, len(png_list), 2):
         montage_cmd = [u"montage",u"-limit","memory","128mb", u"-limit","map","128mb", u"-density",str(DENSITY),"-geometry",u"%sx%s+0+0" % (HALF_PAGE_PX_WIDTH, PAGE_PX_HEIGHT),u"-tile",u"2x1"]
-        montage_cmd.extend(png_list[first_png_idx:first_png_idx+4])
-        pdf_name = u"pdf_from_%4.4d.pdf" % (first_png_idx,)
+        montage_cmd.extend(png_list[first_png_idx:first_png_idx+2])
+        pdf_name = u"pdf_from_%4.4d.png" % (first_png_idx,)
         this_pdf = os.path.join(workdir, pdf_name)
         montage_cmd.append(this_pdf)
         print montage_cmd
