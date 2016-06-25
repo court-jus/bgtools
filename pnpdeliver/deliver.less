@@ -1,0 +1,48 @@
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+}
+div {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+.page {
+  border: 1px solid black;
+  background-color: lightgray;
+  display: flex;
+  page-break-after: always;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  &.page-a4 {
+    width: 210mm;
+    height: 297mm;
+  }
+  &.page-letter {
+    width: 8.5in;
+    height: 11in;
+  }
+  .cards {
+    width: 7.5in;
+    height: 10.5in;
+    display: flex;
+    margin: auto;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    .card {
+      width: 2.5in;
+      height: 3.5in;
+      border: 1px solid red;
+      background-color: pink;
+    }
+  }
+}
+@media print {
+  .noprint {
+    display: none;
+  }
+}
