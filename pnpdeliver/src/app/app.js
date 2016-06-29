@@ -10,10 +10,10 @@ angular
   .module('pnpdeliverApp', [
     'ngAnimate',
     'ngCookies',
-    'ngResource',
     'ngRoute',
     'ngSanitize',
-    'templates-app'
+    'templates-app',
+    'ui.bootstrap'
   ])
   .config(function ($routeProvider) {
     $routeProvider

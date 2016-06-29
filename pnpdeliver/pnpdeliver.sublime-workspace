@@ -4,6 +4,18 @@
 		"selected_items":
 		[
 			[
+				"ca",
+				"cardBack"
+			],
+			[
+				"de",
+				"defaultCard"
+			],
+			[
+				"uib-ac",
+				"uib-accordion-group"
+			],
+			[
 				"page",
 				"page-break-after"
 			],
@@ -84,32 +96,11 @@
 	"buffers":
 	[
 		{
-			"contents": "<html>\n  <style type=\"text/css\">\n  </style>\n<body>\n  <div class=\"noprint\">\n    <form class=\"form\">\n      <label>\n        Page format\n        <select name=\"pageformat\">\n          <option>A4</option>\n          <option>Letter</option>\n        </select>\n      </label>\n    </form>\n  </div>\n  <div class=\"page page-letter\">\n    <div class=\"cards\">\n      <div class=\"card\">1 carte</div>\n      <div class=\"card\">1 carte</div>\n      <div class=\"card\">1 carte</div>\n      <div class=\"card\">1 carte</div>\n      <div class=\"card\">1 carte</div>\n      <div class=\"card\">1 carte</div>\n      <div class=\"card\">1 carte</div>\n      <div class=\"card\">1 carte</div>\n      <div class=\"card\">1 carte</div>\n    </div>\n  </div>\n  <div class=\"page page-letter\">\n    <div class=\"cards\">\n      <div class=\"card\">1 carte</div>\n      <div class=\"card\">1 carte</div>\n      <div class=\"card\">1 carte</div>\n      <div class=\"card\">1 carte</div>\n      <div class=\"card\">1 carte</div>\n      <div class=\"card\">1 carte</div>\n      <div class=\"card\">1 carte</div>\n      <div class=\"card\">1 carte</div>\n      <div class=\"card\">1 carte</div>\n    </div>\n  </div>\n</body>\n</html>\n",
-			"file": "test_print.html",
-			"file_size": 2053,
-			"file_write_time": 131113582170047160,
+			"file": "src/app/main/partials/main.tpl.html",
 			"settings":
 			{
-				"buffer_size": 1140,
-				"line_ending": "Unix",
-				"name": "<html>"
-			}
-		},
-		{
-			"file": "deliver.less",
-			"settings":
-			{
-				"buffer_size": 781,
+				"buffer_size": 1702,
 				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "ctrl.deliver.js",
-			"settings":
-			{
-				"buffer_size": 237,
-				"line_ending": "Unix",
-				"name": "angular.module('PnpDeliver', ["
 			}
 		}
 	],
@@ -140,10 +131,58 @@
 	},
 	"expanded_folders":
 	[
-		"/mnt/stockage/ghislain/MEGA/PNP/02_Templates et outils/bgtools/pnpdeliver"
+		"/mnt/stockage/ghislain/MEGA/PNP/02_Templates et outils/bgtools/pnpdeliver",
+		"/mnt/stockage/ghislain/MEGA/PNP/02_Templates et outils/bgtools/pnpdeliver/bower_components",
+		"/mnt/stockage/ghislain/MEGA/PNP/02_Templates et outils/bgtools/pnpdeliver/bower_components/bootstrap",
+		"/mnt/stockage/ghislain/MEGA/PNP/02_Templates et outils/bgtools/pnpdeliver/bower_components/bootstrap/less",
+		"/mnt/stockage/ghislain/MEGA/PNP/02_Templates et outils/bgtools/pnpdeliver/bower_components/jquery/dist",
+		"/mnt/stockage/ghislain/MEGA/PNP/02_Templates et outils/bgtools/pnpdeliver/build",
+		"/mnt/stockage/ghislain/MEGA/PNP/02_Templates et outils/bgtools/pnpdeliver/src",
+		"/mnt/stockage/ghislain/MEGA/PNP/02_Templates et outils/bgtools/pnpdeliver/src/app",
+		"/mnt/stockage/ghislain/MEGA/PNP/02_Templates et outils/bgtools/pnpdeliver/src/app/test",
+		"/mnt/stockage/ghislain/MEGA/PNP/02_Templates et outils/bgtools/pnpdeliver/src/app/test/partials",
+		"/mnt/stockage/ghislain/MEGA/PNP/02_Templates et outils/bgtools/pnpdeliver/src/less"
 	],
 	"file_history":
 	[
+		"/mnt/stockage/ghislain/cjnetsource/content/PnPDeliver/views/main.html",
+		"/mnt/stockage/ghislain/MEGA/PNP/02_Templates et outils/bgtools/pnpdeliver/.tmp/styles/main.css",
+		"/mnt/stockage/ghislain/MEGA/PNP/02_Templates et outils/bgtools/pnpdeliver/node_modules/grunt-contrib-uglify/node_modules/lodash/function/modArgs.js",
+		"/mnt/stockage/ghislain/cjnetsource/Makefile",
+		"/mnt/stockage/ghislain/MEGA/PNP/02_Templates et outils/bgtools/pnpdeliver/src/less/main.less",
+		"/mnt/stockage/ghislain/MEGA/PNP/02_Templates et outils/bgtools/pnpdeliver/package.json",
+		"/mnt/stockage/ghislain/MEGA/PNP/02_Templates et outils/bgtools/pnpdeliver/node_modules/grunt-html2js/test/expected/process_all_jade.js",
+		"/mnt/stockage/ghislain/MEGA/PNP/02_Templates et outils/bgtools/pnpdeliver/bower.json",
+		"/mnt/stockage/ghislain/MEGA/PNP/02_Templates et outils/bgtools/pnpdeliver/build.config.js",
+		"/mnt/stockage/ghislain/MEGA/PNP/02_Templates et outils/bgtools/pnpdeliver/src/app/test/ctrl.js",
+		"/mnt/stockage/ghislain/MEGA/PNP/02_Templates et outils/bgtools/pnpdeliver/src/app/main/ctrl.js",
+		"/mnt/stockage/ghislain/MEGA/PNP/02_Templates et outils/bgtools/pnpdeliver/src/app/home/ctrl.js",
+		"/mnt/stockage/ghislain/MEGA/PNP/02_Templates et outils/bgtools/pnpdeliver/ctrl.deliver.js",
+		"/mnt/stockage/ghislain/MEGA/PNP/02_Templates et outils/bgtools/pnpdeliver/node_modules/karma/lib/launchers/capture_timeout.js",
+		"/mnt/stockage/ghislain/MEGA/PNP/02_Templates et outils/bgtools/pnpdeliver/src/app/app.js",
+		"/mnt/stockage/ghislain/MEGA/PNP/02_Templates et outils/bgtools/pnpdeliver/src/less/pnpdeliver.less",
+		"/mnt/stockage/ghislain/MEGA/PNP/02_Templates et outils/bgtools/pnpdeliver/src/less/variables.less",
+		"/mnt/stockage/ghislain/MEGA/PNP/02_Templates et outils/bgtools/pnpdeliver/MyData/urls_hope.txt",
+		"/mnt/stockage/ghislain/MEGA/PNP/02_Templates et outils/bgtools/pnpdeliver/src/app/test/partials/test.tpl.html",
+		"/mnt/stockage/ghislain/MEGA/PNP/02_Templates et outils/bgtools/pnpdeliver/node_modules/grunt-contrib-uglify/node_modules/lodash/internal/baseUniq.js",
+		"/mnt/stockage/ghislain/MEGA/PNP/02_Templates et outils/bgtools/pnpdeliver/build/assets/themes-0.0.3/pnpdeliver.css",
+		"/mnt/stockage/ghislain/MEGA/PNP/02_Templates et outils/bgtools/pnpdeliver/build/src/app/app.js",
+		"/mnt/stockage/ghislain/MEGA/PNP/02_Templates et outils/bgtools/pnpdeliver/bower_components/jquery/src/var/hasOwn.js",
+		"/mnt/stockage/ghislain/MEGA/PNP/02_Templates et outils/bgtools/pnpdeliver/node_modules/clean-css/History.md",
+		"/mnt/stockage/ghislain/MEGA/PNP/02_Templates et outils/bgtools/pnpdeliver/node_modules/grunt-contrib-uglify/node_modules/lodash/internal/baseForOwn.js",
+		"/mnt/stockage/ghislain/MEGA/PNP/02_Templates et outils/bgtools/pnpdeliver/MyData/urls_test.txt",
+		"/mnt/stockage/ghislain/MEGA/PNP/02_Templates et outils/bgtools/pnpdeliver/app/views/test.html",
+		"/mnt/stockage/ghislain/MEGA/PNP/02_Templates et outils/bgtools/pnpdeliver/app/scripts/controllers/test.js",
+		"/mnt/stockage/ghislain/MEGA/PNP/02_Templates et outils/bgtools/pnpdeliver/Gruntfile.js",
+		"/mnt/stockage/ghislain/cjnetsource/site.yaml",
+		"/mnt/stockage/ghislain/MEGA/PNP/02_Templates et outils/bgtools/pnpdeliver/app/views/main.html",
+		"/mnt/stockage/ghislain/MEGA/PNP/02_Templates et outils/bgtools/pnpdeliver/app/index.html",
+		"/mnt/stockage/ghislain/MEGA/PNP/02_Templates et outils/bgtools/pnpdeliver/app/styles/main.css",
+		"/mnt/stockage/ghislain/MEGA/PNP/02_Templates et outils/bgtools/pnpdeliver/dist/fonts/glyphicons-halflings-regular.svg",
+		"/home/famille/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
+		"/home/famille/.config/sublime-text-3/Packages/Default/Preferences.sublime-settings",
+		"/mnt/stockage/ghislain/MEGA/PNP/02_Templates et outils/bgtools/pnpdeliver/deliver.less",
+		"/mnt/stockage/ghislain/MEGA/PNP/02_Templates et outils/bgtools/pnpdeliver/test_print.html",
 		"/home/famille/Clarisys/mca/media/css_mca/worklist.css",
 		"/home/famille/Clarisys/mca/webui/node_modules/karma/node_modules/http-proxy/lib/http-proxy/passes/web-outgoing.js",
 		"/home/famille/Clarisys/mca/wsgi.py",
@@ -233,49 +272,11 @@
 		"/home/famille/Clarisys/mca/colisage/views.py",
 		"/home/famille/Clarisys/mca/media/css_mca/colisage.css",
 		"/home/famille/Clarisys/mca/dojango/dojo-media/src/1.6.1/dojox/form/tests/cLOG.php.disabled",
-		"/home/famille/Clarisys/mca/webui/node_modules/karma/CODE_OF_CONDUCT.md",
-		"/home/famille/Clarisys/mca/.local/lib/python2.7/site-packages/matplotlib/backends/qt4_compat.py",
-		"/home/famille/Clarisys/mca/webui/src/app/parametrage/partials/parametragegeneral/qc_parametrage_mmp.tpl.html",
-		"/home/famille/Clarisys/mca/clarilab/tests/test_testbio.py",
-		"/home/famille/Clarisys/mca/mcalib/tests/test_trace_et_bpm.py",
-		"/home/famille/Clarisys/mca/analytique/tests/test_transcodage.py",
-		"/home/famille/Clarisys/mca/automate/migrations/0011_automate_image.py",
-		"/home/famille/Clarisys/mca/dashboard/management/commands/__init__.py",
-		"/home/famille/Clarisys/mca/webui/node_modules/grunt-contrib-coffee/node_modules/lodash/internal/MapCache.js",
-		"/home/famille/Clarisys/mca/webui/vendor/angular-i18n/angular-locale_shi-latn-ma.js",
-		"/home/famille/Clarisys/mca/templates/validation/data_anterio_sil_1.html",
-		"/home/famille/.config/sublime-text-3/Packages/User/pytest.sublime-build",
-		"/home/famille/Clarisys/mca/controlequalite/models.py",
-		"/home/famille/Clarisys/mca/webui/src/app/validation/controller.myelo.js",
-		"/home/famille/Clarisys/mca/dossier/comportements/controles.py",
-		"/home/famille/Clarisys/mca/mcalib/context.py",
-		"/home/famille/Clarisys/mca/acteurs/conftest.py",
-		"/home/famille/Clarisys/mca/webui/src/app/qc/partials/parametrage/comportement_alerte.tpl.html",
-		"/home/famille/Clarisys/mca/colisage/models.py",
-		"/home/famille/Clarisys/mca/media/javascript/ctrltestbio.js",
-		"/home/famille/Clarisys/mca/webui/vendor/bootstrap/less/component-animations.less",
-		"/home/famille/Clarisys/mca/webui/node_modules/grunt-contrib-uglify/node_modules/lodash/internal/composeArgs.js",
-		"/home/famille/Clarisys/mca/webui/node_modules/bower/node_modules/bower-json/lib/util/isComponent.js",
-		"/home/famille/Clarisys/mca/webui/build.config.js",
-		"/home/famille/Clarisys/mca/webui/node_modules/grunt-contrib-coffee/node_modules/lodash/internal/baseUniq.js",
-		"/home/famille/Clarisys/mca/.local/lib/python2.7/site-packages/django/dispatch/weakref_backports.py",
-		"/home/famille/Clarisys/mca/webui/node_modules/grunt-contrib-coffee/node_modules/lodash/lang/isMatch.js",
-		"/home/famille/Clarisys/mca/controlequalite/qclinker.py",
-		"/home/famille/www/ng-austerity/src/app/home/home.js",
-		"/home/famille/www/ng-austerity/src/app/home/home.less",
-		"/home/famille/www/ng-austerity/src/app/home/home.tpl.html",
-		"/home/famille/www/ng-austerity/src/app/about/about.tpl.html",
-		"/home/famille/www/ng-austerity/src/app/about/about.js",
-		"/home/famille/www/ng-austerity/assets/README.md",
-		"/home/famille/www/ng-austerity/index.html",
-		"/home/famille/.steam/steam/steamapps/common/Lux Delux/LuxDelux.sh",
-		"/mnt/stockage/Jeux/ng-austerity/src/app/home/home.js",
-		"/home/famille/www/ng-austerity/src/index.html",
-		"/home/famille/www/ng-austerity/bower.json"
+		"/home/famille/Clarisys/mca/webui/node_modules/karma/CODE_OF_CONDUCT.md"
 	],
 	"find":
 	{
-		"height": 25.0
+		"height": 35.0
 	},
 	"find_in_files":
 	{
@@ -289,6 +290,36 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"imagesUrls",
+			"currentPage",
+			"lastPage",
+			"console",
+			"container",
+			"container-large-desktop",
+			"pages",
+			"defaultDeck",
+			"currentPage",
+			"ui-bootstrap",
+			"bootstrap",
+			"default",
+			" $",
+			"$",
+			"imageUrl",
+			"currentPage",
+			"cards",
+			"input",
+			"template",
+			"pages",
+			"center",
+			"scope.pages",
+			"current_page",
+			"browser",
+			"wiredep",
+			"tab",
+			"wiredep",
+			"ngAnnotate",
+			"page_format",
+			"noprint",
 			"class=\"card",
 			" +$",
 			"get_redis_connection",
@@ -386,37 +417,7 @@
 			"ported",
 			"sm",
 			"console",
-			"check_condition",
-			"condition",
-			"disabled",
-			"condition",
-			"event.condition",
-			"resolve",
-			"canspend",
-			"bag",
-			"spend",
-			"aRemoveColor",
-			"remove",
-			"cubes_removed",
-			"$q",
-			"plemen",
-			"remove",
-			"plemen",
-			"used",
-			"old_values",
-			"log_change",
-			"tracabilite_active",
-			"tracabilite",
-			"get_traces_for_qs",
-			"Trace",
-			"4",
-			"compute_pnglist",
-			"PAGE_PX_HEIGHT",
-			"candraw",
-			"year",
-			"\"",
-			"if",
-			"title"
+			"check_condition"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -424,6 +425,7 @@
 		"regex": true,
 		"replace_history":
 		[
+			"\\",
 			"'",
 			"court-jus/ng-austerity",
 			"ngAusterity"
@@ -437,91 +439,29 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "test_print.html",
+					"file": "src/app/main/partials/main.tpl.html",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1140,
+						"buffer_size": 1702,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								33,
-								33
-							]
-						],
-						"settings":
-						{
-							"auto_name": "<html>",
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "deliver.less",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 781,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								149,
-								149
+								955,
+								955
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "ctrl.deliver.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 237,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								237,
-								237
-							]
-						],
-						"settings":
-						{
-							"auto_name": "angular.module('PnpDeliver', [",
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
@@ -577,7 +517,7 @@
 	"project": "pnpdeliver.sublime-project",
 	"replace":
 	{
-		"height": 46.0
+		"height": 64.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -585,6 +525,38 @@
 		"height": 0.0,
 		"selected_items":
 		[
+			[
+				"mainhtml",
+				"pnpdeliver/src/app/main/partials/main.tpl.html"
+			],
+			[
+				"pack",
+				"pnpdeliver/package.json"
+			],
+			[
+				"bo",
+				"pnpdeliver/bower.json"
+			],
+			[
+				"ctrljs",
+				"pnpdeliver/src/app/test/ctrl.js"
+			],
+			[
+				"build",
+				"pnpdeliver/build.config.js"
+			],
+			[
+				"hope",
+				"pnpdeliver/MyData/urls_hope.txt"
+			],
+			[
+				"bower.json",
+				"pnpdeliver/bower.json"
+			],
+			[
+				"gruntfile",
+				"Gruntfile.js"
+			],
 			[
 				"qclib",
 				"mca/qc/lib.py"
@@ -756,7 +728,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 287.0,
+	"side_bar_width": 255.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

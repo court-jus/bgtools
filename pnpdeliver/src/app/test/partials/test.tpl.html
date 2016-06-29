@@ -1,104 +1,181 @@
-<div class="noprint">
-  <form class="form">
-    <label>
-      Image URLs
-      <textarea class="form-control" ng-model="model.imagesUrls"></textarea>
-      <small>Paste a list of image URLs. Each URL will be a distinct card.</small>
-    </label>
-    <uib-accordion close-others="false">
-      <uib-accordion-group heading="Options">
-        Options
-      </uib-accordion-group>
-      <uib-accordion-group heading="Options2">
-        Options2
-      </uib-accordion-group>
-    </uib-accordion>
-    <label>
-      Paper size
-      <select class="form-control" ng-model="model.pageFormat">
-        <option>A4</option>
-        <option>Letter</option>
-      </select>
-    </label>
-    <label>
-      Show boundaries
-      <input type="checkbox" ng-model="model.showBoundaries" />
-    </label>
-    <label>
-      Show image URL
-      <input type="checkbox" ng-model="model.showImageurl" />
-    </label>
-    <label>
-      Rows
-      <input type="number" ng-model="model.rows" />
-    </label>
-    <label>
-      Columns
-      <input type="number" ng-model="model.cols" />
-    </label>
-    <label>
-      Card width (inches)
-      <input type="number" step="0.1" ng-model="model.cardWidth" />
-    </label>
-    <label>
-      Card height (inches)
-      <input type="number" step="0.1" ng-model="model.cardHeight" />
-    </label>
-    <label>
-      Horizontal margin (inches)
-      <input type="number" step="0.01" ng-model="model.hMargin" />
-    </label>
-    <label>
-      Vertical margin (inches)
-      <input type="number" step="0.01" ng-model="model.vMargin" />
-    </label>
-    <label>
-      Image width (inches)
-      <input type="number" step="0.1" ng-model="model.imageWidth" />
-    </label>
-    <label>
-      Image height (inches)
-      <input type="number" step="0.1" ng-model="model.imageHeight" />
-    </label>
-    <label>
-      Image horizontal shift (inches)
-      <input type="number" step="0.1" ng-model="model.imageHShift" />
-    </label>
-    <label>
-      Image vertical shift (inches)
-      <input type="number" step="0.1" ng-model="model.imageVShift" />
-    </label>
-    <hr />
-    <button type="submit"
-            class="btn btn-primary"
-            ng-click="print()">
-      <span class="glyphicon glyphicon-print"></span>
-      Print
-    </button>
-    <p>Don't forget to turn margins off when printing and to choose the
-    same paper size you've chosen here.</p>
-    <hr />
-  </form>
-</div>
-<div class="page"
-     ng-repeat="page in model.pages"
-     ng-class="{'page-letter': model.pageFormat === 'Letter',
-                'page-a4': model.pageFormat === 'A4',
-                'with-boundaries': model.showBoundaries}">
-  <div class="cards"
-       style="width: {{ ((model.cardWidth + model.hMargin * 2) * model.cols) }}in;
-              height: {{ ((model.cardHeight + model.vMargin * 2) * model.rows) }}in;">
-    <div class="card"
-         style="width: {{ model.cardWidth }}in; height: {{ model.cardHeight }}in;"
-         ng-class="{'with-boundaries': model.showBoundaries}"
-         ng-repeat="card in page.cards track by $index">
-      <img src="{{ card }}"
-           style="width: {{ model.imageWidth }}in;
-                  height: {{ model.imageHeight }}in;
-                  left: {{ model.imageHShift }}in;
-                  top: {{ model.imageVShift }}in;"
-           class="back" />
-      <p ng-show="model.showImageurl">{{ card }}</p>
+<div class="flex">
+  <div class="noprint">
+    <form class="form">
+      <label>
+        Image URLs
+        <textarea class="form-control" ng-model="imagesUrls"></textarea>
+        <small>Paste a list of image URLs. Each URL will be a distinct card.</small>
+      </label>
+      <button class="btn btn-default"
+              title="Create a deck from this URL list"
+              ng-click="addUrls()">
+        Create a deck
+      </button>
+      <button class="btn btn-warning"
+              title="Clear the URL list field"
+              ng-click="imagesUrls = ''">
+        Clear
+      </button>
+      <uib-accordion close-others="false">
+        <uib-accordion-group heading="Decks">
+          <uib-accordion close-others="false">
+            <uib-accordion-group heading="{{ deck.name || 'unnamed deck' }}"
+                 ng-repeat="deck in model.decks">
+              <uib-accordion close-others="false">
+                <uib-accordion-group heading="{{ card.count || 1 }} {{ card.name || 'unnamed card' }}"
+                    ng-repeat="card in deck.cards">
+                  <label>
+                    Name (optional)
+                    <input type="text"
+                           class="form-control"
+                           ng-model="card.name"
+                           placeholder="Name" />
+                  </label>
+                  <label>
+                    Front URL
+                    <input type="text"
+                           class="form-control"
+                           ng-model="card.imageUrl"
+                           placeholder="Front URL" />
+                  </label>
+                  <label>
+                    Back URL (optional)
+                    <input type="text"
+                           class="form-control"
+                           ng-model="card.cardBack"
+                           placeholder="Back URL" />
+                  </label>
+                  <label>
+                    Count (how many copies, optional)
+                    <input type="number"
+                           class="form-control"
+                           ng-model="card.count"
+                           placeholder="Count" />
+                  </label>
+                  <div class="row">
+                    <button class="btn btn-danger col-sm-6 col-sm-offset-3"
+                         title="Remove this card"
+                         ng-click="deck.cards.splice($index, 1);">
+                      <i class="fa fa-fw fa-trash">
+                      </i>
+                    </button>
+                  </div>
+                </uib-accordion-group>
+                <div class="row">
+                  <button class="btn btn-success col-sm-5 col-sm-offset-1"
+                          ng-click="deck.cards.push({});">
+                    Add a card
+                  </button>
+                  <button class="btn btn-danger col-sm-5"
+                       title="Remove this deck"
+                       ng-click="model.decks.splice($index, 1);">
+                    <i class="fa fa-fw fa-trash">
+                    </i>
+                  </button>
+                </div>
+              </uib-accordion>
+            </uib-accordion-group>
+          </uib-accordion>
+        </uib-accordion-group>
+        <uib-accordion-group heading="Page format">
+          <label>
+            Paper size
+            <select class="form-control" ng-model="model.pageFormat">
+              <option>A4</option>
+              <option>Letter</option>
+            </select>
+          </label>
+          <label>
+            Rows
+            <input type="number" ng-model="model.rows" />
+          </label>
+          <label>
+            Columns
+            <input type="number" ng-model="model.cols" />
+          </label>
+        </uib-accordion-group>
+        <uib-accordion-group heading="Card format">
+          <label>
+            Card width (inches)
+            <input type="number" step="0.1" ng-model="model.cardWidth" />
+          </label>
+          <label>
+            Card height (inches)
+            <input type="number" step="0.1" ng-model="model.cardHeight" />
+          </label>
+          <label>
+            Horizontal margin (inches)
+            <input type="number" step="0.01" ng-model="model.hMargin" />
+          </label>
+          <label>
+            Vertical margin (inches)
+            <input type="number" step="0.01" ng-model="model.vMargin" />
+          </label>
+        </uib-accordion-group>
+        <uib-accordion-group heading="Crop & Shift">
+          <label>
+            Image width (inches)
+            <input type="number" step="0.1" ng-model="model.imageWidth" />
+          </label>
+          <label>
+            Image height (inches)
+            <input type="number" step="0.1" ng-model="model.imageHeight" />
+          </label>
+          <label>
+            Image horizontal shift (inches)
+            <input type="number" step="0.1" ng-model="model.imageHShift" />
+          </label>
+          <label>
+            Image vertical shift (inches)
+            <input type="number" step="0.1" ng-model="model.imageVShift" />
+          </label>
+        </uib-accordion-group>
+        <uib-accordion-group heading="More...">
+          <label>
+            Show boundaries
+            <input type="checkbox" ng-model="model.showBoundaries" />
+          </label>
+          <label>
+            Show image URL
+            <input type="checkbox" ng-model="model.showImageurl" />
+          </label>
+        </uib-accordion-group>
+
+      </uib-accordion>
+      <hr />
+      <button type="submit"
+              class="btn btn-primary"
+              ng-click="print()">
+        <span class="glyphicon glyphicon-print"></span>
+        Print
+      </button>
+      <p>Don't forget to turn margins off when printing and to choose the
+      same paper size you've chosen here.</p>
+      <hr />
+    </form>
+  </div>
+  <div class="pages">
+    <div class="page"
+         ng-repeat="page in model.pages"
+         ng-class="{'page-letter': model.pageFormat === 'Letter',
+                    'page-a4': model.pageFormat === 'A4',
+                    'with-boundaries': model.showBoundaries}">
+      <div class="cards"
+           style="width: {{ ((model.cardWidth + model.hMargin * 2) * model.cols) }}in;
+                  height: {{ ((model.cardHeight + model.vMargin * 2) * model.rows) }}in;">
+        <div class="card"
+             style="width: {{ model.cardWidth }}in; height: {{ model.cardHeight }}in;"
+             ng-class="{'with-boundaries': model.showBoundaries}"
+             ng-repeat="card in page track by $index">
+          <p ng-show="model.showImageurl">{{ card.imageUrl }}</p>
+          <img src="{{ card.imageUrl }}"
+               style="width: {{ model.imageWidth }}in;
+                      height: {{ model.imageHeight }}in;
+                      left: {{ model.imageHShift }}in;
+                      top: {{ model.imageVShift }}in;"
+               class="back" />
+        </div>
+      </div>
     </div>
   </div>
 </div>
