@@ -1,16 +1,24 @@
 <div class="noprint">
   <form class="form">
     <label>
+      Image URLs
+      <textarea class="form-control" ng-model="model.imagesUrls"></textarea>
+      <small>Paste a list of image URLs. Each URL will be a distinct card.</small>
+    </label>
+    <uib-accordion close-others="false">
+      <uib-accordion-group heading="Options">
+        Options
+      </uib-accordion-group>
+      <uib-accordion-group heading="Options2">
+        Options2
+      </uib-accordion-group>
+    </uib-accordion>
+    <label>
       Paper size
       <select class="form-control" ng-model="model.pageFormat">
         <option>A4</option>
         <option>Letter</option>
       </select>
-    </label>
-    <label>
-      Image URLs
-      <textarea class="form-control" ng-model="model.imagesUrls"></textarea>
-      <small>Paste a list of image URLs. Each URL will be a distinct card.</small>
     </label>
     <label>
       Show boundaries

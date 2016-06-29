@@ -103,9 +103,9 @@ div {
     align-content: space-around;
     .card {
       position: relative;
+      overflow: hidden;
       img.back {
         position: absolute;
-        z-index: -1;
       }
       p {
         width: 100%;
@@ -115,6 +115,9 @@ div {
       &.card.with-boundaries {
         border: 1px solid red;
         background-color: pink;
+        img.back {
+          opacity: 0.5;
+        }
       }
     }
   }
