@@ -20,6 +20,46 @@
       Show image URL
       <input type="checkbox" ng-model="model.showImageurl" />
     </label>
+    <label>
+      Rows
+      <input type="number" ng-model="model.rows" />
+    </label>
+    <label>
+      Columns
+      <input type="number" ng-model="model.cols" />
+    </label>
+    <label>
+      Card width (inches)
+      <input type="number" step="0.1" ng-model="model.cardWidth" />
+    </label>
+    <label>
+      Card height (inches)
+      <input type="number" step="0.1" ng-model="model.cardHeight" />
+    </label>
+    <label>
+      Horizontal margin (inches)
+      <input type="number" step="0.01" ng-model="model.hMargin" />
+    </label>
+    <label>
+      Vertical margin (inches)
+      <input type="number" step="0.01" ng-model="model.vMargin" />
+    </label>
+    <label>
+      Image width (inches)
+      <input type="number" step="0.1" ng-model="model.imageWidth" />
+    </label>
+    <label>
+      Image height (inches)
+      <input type="number" step="0.1" ng-model="model.imageHeight" />
+    </label>
+    <label>
+      Image horizontal shift (inches)
+      <input type="number" step="0.1" ng-model="model.imageHShift" />
+    </label>
+    <label>
+      Image vertical shift (inches)
+      <input type="number" step="0.1" ng-model="model.imageVShift" />
+    </label>
     <hr />
     <button type="submit"
             class="btn btn-primary"
@@ -37,11 +77,18 @@
      ng-class="{'page-letter': model.pageFormat === 'Letter',
                 'page-a4': model.pageFormat === 'A4',
                 'with-boundaries': model.showBoundaries}">
-  <div class="cards">
+  <div class="cards"
+       style="width: {{ ((model.cardWidth + model.hMargin * 2) * model.cols) }}in;
+              height: {{ ((model.cardHeight + model.vMargin * 2) * model.rows) }}in;">
     <div class="card"
+         style="width: {{ model.cardWidth }}in; height: {{ model.cardHeight }}in;"
          ng-class="{'with-boundaries': model.showBoundaries}"
          ng-repeat="card in page.cards track by $index">
       <img src="{{ card }}"
+           style="width: {{ model.imageWidth }}in;
+                  height: {{ model.imageHeight }}in;
+                  left: {{ model.imageHShift }}in;
+                  top: {{ model.imageVShift }}in;"
            class="back" />
       <p ng-show="model.showImageurl">{{ card }}</p>
     </div>

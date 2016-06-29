@@ -1,8 +1,8 @@
 {
   "author": "Ghislain Lévêque",
   "name": "pnpdeliver",
-  "version": "0.0.1",
-  "homepage": "http://court-jus.net/",
+  "version": "0.0.3",
+  "homepage": "http://court-jus.github.io/PnPDeliver/",
   "licenses": {
     "type": "Non Free"
   },

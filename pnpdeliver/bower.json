@@ -1,6 +1,6 @@
 {
   "name": "pnpdeliver",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "devDependencies": {
     "FileSaver": "master",
     "angular": "~1.3",
