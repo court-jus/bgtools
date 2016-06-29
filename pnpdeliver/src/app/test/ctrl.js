@@ -12,12 +12,13 @@ angular.module('pnpdeliverApp')
     };
     $scope.model = {
       pageFormat: 'A4',
-      imagesUrls: 'https://thumbs.dreamstime.com/x/playing-card-back-side-60x90-mm-17679108.jpg\nhttp://www.jimknapp.com/Cards/Non-Bicycle_files/image002.jpg',
+      // imagesUrls: 'https://thumbs.dreamstime.com/x/playing-card-back-side-60x90-mm-17679108.jpg\nhttp://www.jimknapp.com/Cards/Non-Bicycle_files/image002.jpg',
+      imagesUrls: '',
       pages: []
     };
     $scope.$watch('model.imagesUrls', function(n) {
       if (angular.isUndefined(n)) {
-        return true;
+        return;
       }
       $scope.model.pages = [];
       var currentPage = [];
@@ -28,11 +29,13 @@ angular.module('pnpdeliverApp')
           });
           currentPage = [];
         }
-        currentPage.push(imageUrl);
+        if (imageUrl !== '') {
+          currentPage.push(imageUrl);
+        }
       });
       if (currentPage.length > 0) {
         while (currentPage.length < 9) {
-          currentPage.push('http://orig14.deviantart.net/6021/f/2012/302/5/c/mlp__cwf_card_back_by_noonebahtim-d5je44f.png');
+          currentPage.push('assets/images/white.png');
         }
         $scope.model.pages.push({
           cards: currentPage

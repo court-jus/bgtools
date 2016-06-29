@@ -127,7 +127,8 @@ module.exports = {
       'fonts/glyphicons-halflings-regular.woff2',
       'fonts/glyphicons-halflings-regular.ttf',
       'fonts/glyphicons-halflings-regular.eot',
-      'fonts/glyphicons-halflings-regular.svg'
+      'fonts/glyphicons-halflings-regular.svg',
+      'images/white.png'
     ]
   },
 };

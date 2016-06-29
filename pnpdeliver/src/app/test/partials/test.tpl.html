@@ -16,6 +16,10 @@
       Show boundaries
       <input type="checkbox" ng-model="model.showBoundaries" />
     </label>
+    <label>
+      Show image URL
+      <input type="checkbox" ng-model="model.showImageurl" />
+    </label>
     <hr />
     <button type="submit"
             class="btn btn-primary"
@@ -39,7 +43,7 @@
          ng-repeat="card in page.cards track by $index">
       <img src="{{ card }}"
            class="back" />
-      <p>{{ card }}</p>
+      <p ng-show="model.showImageurl">{{ card }}</p>
     </div>
   </div>
 </div>
