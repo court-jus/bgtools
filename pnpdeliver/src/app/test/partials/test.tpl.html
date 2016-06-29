@@ -1,0 +1,45 @@
+<div class="noprint">
+  <form class="form">
+    <label>
+      Paper size
+      <select class="form-control" ng-model="model.pageFormat">
+        <option>A4</option>
+        <option>Letter</option>
+      </select>
+    </label>
+    <label>
+      Image URLs
+      <textarea class="form-control" ng-model="model.imagesUrls"></textarea>
+      <small>Paste a list of image URLs. Each URL will be a distinct card.</small>
+    </label>
+    <label>
+      Show boundaries
+      <input type="checkbox" ng-model="model.showBoundaries" />
+    </label>
+    <hr />
+    <button type="submit"
+            class="btn btn-primary"
+            ng-click="print()">
+      <span class="glyphicon glyphicon-print"></span>
+      Print
+    </button>
+    <p>Don't forget to turn margins off when printing and to choose the
+    same paper size you've chosen here.</p>
+    <hr />
+  </form>
+</div>
+<div class="page"
+     ng-repeat="page in model.pages"
+     ng-class="{'page-letter': model.pageFormat === 'Letter',
+                'page-a4': model.pageFormat === 'A4',
+                'with-boundaries': model.showBoundaries}">
+  <div class="cards">
+    <div class="card"
+         ng-class="{'with-boundaries': model.showBoundaries}"
+         ng-repeat="card in page.cards track by $index">
+      <img src="{{ card }}"
+           class="back" />
+      <p>{{ card }}</p>
+    </div>
+  </div>
+</div>

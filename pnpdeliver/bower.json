@@ -1,29 +1,52 @@
 {
   "name": "pnpdeliver",
-  "version": "0.0.0",
-  "dependencies": {
-    "angular": "^1.4.0",
-    "bootstrap": "^3.2.0",
-    "angular-animate": "^1.4.0",
-    "angular-cookies": "^1.4.0",
-    "angular-resource": "^1.4.0",
-    "angular-route": "^1.4.0",
-    "angular-sanitize": "^1.4.0",
-    "angular-touch": "^1.4.0",
-    "lodash": "^4.13.1"
-  },
+  "version": "0.0.1",
   "devDependencies": {
-    "angular-mocks": "^1.4.0"
+    "FileSaver": "master",
+    "angular": "~1.3",
+    "angular-bindonce": "~0.3.3",
+    "angular-bootstrap": "~0.13",
+    "angular-bootstrap-confirm": "~0.3",
+    "angular-cookies": "~1.3",
+    "angular-mocks": "~1.3",
+    "angular-raven": "~0.5.8",
+    "angular-resource": "~1.3",
+    "angular-sanitize": "~1.4",
+    "angular-scenario": "~1.2.25",
+    "angular-snap": "~1.6",
+    "angular-ui-grid": "~3.0.0-rc.20",
+    "angular-ui-router": "~0.2.17",
+    "angular-ui-utils": "~0.1",
+    "angular-xeditable": "~0.1.9",
+    "bootstrap": "~3.3.4",
+    "bootswatch": "~3.1.1",
+    "checklist-model": "~0.1.3",
+    "clys-daterange-picker": "http://10.31.254.42/common/clys-daterange-picker.git",
+    "csv": "~1.0.2",
+    "event-source-polyfill": "~0.0.6",
+    "fabric": "~1.4.11",
+    "font-awesome": "~4.4",
+    "highcharts-ng": "https://github.com/court-jus/highcharts-ng.git#master",
+    "highcharts.com": "https://github.com/highslide-software/highcharts-release.git#~4.1.5",
+    "js-xlsx": "~0.8.0",
+    "jszip": "~2.5.0",
+    "lodash": "~3.10.1",
+    "momentjs": "~2.13",
+    "ng-file-upload": "~3.3.2",
+    "ngstorage": "~0.3.0",
+    "pdfmake": "~0.1.15",
+    "raven-js": "~1.1.16",
+    "angular-loading-bar": "~0.8.0",
+    "angular-i18n": "~1.4.8",
+    "tinycolor": "~1.3.0"
   },
-  "appPath": "app",
-  "moduleName": "pnpdeliverApp",
-  "overrides": {
-    "bootstrap": {
-      "main": [
-        "less/bootstrap.less",
-        "dist/css/bootstrap.css",
-        "dist/js/bootstrap.js"
-      ]
-    }
+  "dependencies": {
+    "ng-tags-input": "3.0.0",
+    "angular-animate": "^1.5.7",
+    "angular-route": "^1.5.7"
+  },
+  "resolutions": {
+    "bootstrap": "~3.3.4",
+    "angular": "~1.x"
   }
 }

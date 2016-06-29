@@ -1,483 +1,595 @@
-// Generated on 2016-06-25 using generator-angular 0.15.1
-'use strict';
+module.exports = function ( grunt ) {
 
-// # Globbing
-// for performance reasons we're only matching one level down:
-// 'test/spec/{,*/}*.js'
-// use this if you want to recursively match all subfolders:
-// 'test/spec/**/*.js'
+  /**
+   * Load required Grunt tasks. These are installed based on the versions listed
+   * in `package.json` when you do `npm install` in this directory.
+   */
+  grunt.loadNpmTasks('grunt-contrib-clean');
+  grunt.loadNpmTasks('grunt-contrib-copy');
+  grunt.loadNpmTasks('grunt-contrib-jshint');
+  grunt.loadNpmTasks('grunt-contrib-concat');
+  grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-contrib-less');
+  grunt.loadNpmTasks('grunt-bump');
+  grunt.loadNpmTasks('grunt-karma');
+  grunt.loadNpmTasks('grunt-ngmin');
+  grunt.loadNpmTasks('grunt-html2js');
+  grunt.loadNpmTasks('grunt-shell');
 
-module.exports = function (grunt) {
+  /**
+   * Load in our build configuration file.
+   */
+  var userConfig = require( './build.config.js' );
 
-  // Time how long tasks take. Can help when optimizing build times
-  require('time-grunt')(grunt);
+  /**
+   * This is the configuration object Grunt uses to give each plugin its
+   * instructions.
+   */
+  var taskConfig = {
+    /**
+     * We read in our `package.json` file so we can access the package name and
+     * version. It's already there, so we don't repeat ourselves here.
+     */
+    pkg: grunt.file.readJSON("package.json"),
 
-  // Automatically load required Grunt tasks
-  require('jit-grunt')(grunt, {
-    useminPrepare: 'grunt-usemin',
-    ngtemplates: 'grunt-angular-templates',
-    cdnify: 'grunt-google-cdn'
-  });
+    /**
+     * The banner is the comment that is placed at the top of our compiled
+     * source files. It is first processed as a Grunt template, where the `<%=`
+     * pairs are evaluated based on this very configuration object.
+     */
+    meta: {
+      banner:
+        '/**\n' +
+        ' * <%= pkg.name %> - v<%= pkg.version %> - <%= grunt.template.today("yyyy-mm-dd") %>\n' +
+        ' *\n' +
+        ' * Copyright (c) <%= grunt.template.today("yyyy") %> CLARISYS Informatique <%= pkg.author %>\n' +
+        ' */\n'
+    },
 
-  // Configurable paths for the application
-  var appConfig = {
-    app: require('./bower.json').appPath || 'app',
-    dist: 'dist'
-  };
+    /**
+     * Increments the version number, etc.
+     */
+    bump: {
+      options: {
+        files: [
+          "package.json",
+          "bower.json"
+        ],
+        commit: true,
+        commitMessage: 'grunt release: v%VERSION%',
+        commitFiles: [
+          "package.json",
+          "bower.json"
+        ],
+        createTag: true,
+        tagName: 'v%VERSION%',
+        tagMessage: 'Version %VERSION%',
+        push: false,
+        pushTo: 'origin'
+      }
+    },
 
-  // Define the configuration for all the tasks
-  grunt.initConfig({
+    /**
+     * The directories to delete when `grunt clean` is executed.
+     */
+    clean: [
+      '<%= build_dir %>',
+      '<%= compile_dir %>'
+    ],
 
-    // Project settings
-    yeoman: appConfig,
-
-    // Watches files for changes and runs tasks based on the changed files
-    watch: {
-      bower: {
-        files: ['bower.json'],
-        tasks: ['wiredep']
+    /**
+     * The `copy` task just copies files from A to B. We use it here to copy
+     * our project assets (images, fonts, etc.) and javascripts into
+     * `build_dir`, and then to copy the assets to `compile_dir`.
+     */
+    copy: {
+      build_app_assets: {
+        files: [
+          {
+            src: [ '**' ],
+            dest: '<%= build_dir %>/assets/',
+            cwd: 'src/assets',
+            expand: true
+          }
+       ]
       },
-      js: {
-        files: ['<%= yeoman.app %>/scripts/{,*/}*.js'],
-        tasks: ['newer:jshint:all', 'newer:jscs:all'],
+      build_vendor_assets: {
+        files: [
+          {
+            src: [ '<%= vendor_files.assets %>' ],
+            dest: '<%= build_dir %>/assets/',
+            cwd: '.',
+            expand: true,
+            flatten: true
+          },
+          {
+            src: [ '<%= vendor_files.assets_noflat %>' ],
+            dest: '<%= build_dir %>/assets/',
+            cwd: '.',
+            expand: true
+          }
+        ]
+      },
+      build_appjs: {
+        files: [
+          {
+            src: [ '<%= app_files.js %>' ],
+            dest: '<%= build_dir %>/',
+            cwd: '.',
+            expand: true
+          }
+        ]
+      },
+      build_vendorjs: {
+        files: [
+          {
+            src: [ '<%= vendor_files.js %>' ],
+            dest: '<%= build_dir %>/',
+            cwd: '.',
+            expand: true
+          }
+        ]
+      },
+      build_assets: {
+        files: [
+          {
+            src: [ '**' ],
+            dest: '<%= compile_dir %>/assets',
+            cwd: '<%= build_dir %>/assets',
+            expand: true
+          }
+        ]
+      }
+    },
+
+    /**
+     * `grunt concat` concatenates multiple source files into a single file.
+     */
+    concat: {
+      /**
+       * The `build_css` target concatenates compiled CSS and vendor CSS
+       * together.
+       */
+      build_css: {
+        src: [
+          '<%= vendor_files.css %>',
+          "<%= build_dir %>/assets/<%= pkg.name %>-<%= pkg.version %>.css"
+        ],
+        dest: "<%= build_dir %>/assets/<%= pkg.name %>-<%= pkg.version %>.css"
+      },
+      /**
+       * The `compile_js` target is the concatenation of our application source
+       * code and all specified vendor source code into a single file.
+       */
+      compile_js: {
         options: {
-          livereload: '<%= connect.options.livereload %>'
-        }
-      },
-      jsTest: {
-        files: ['test/spec/{,*/}*.js'],
-        tasks: ['newer:jshint:test', 'newer:jscs:test', 'karma']
-      },
-      styles: {
-        files: ['<%= yeoman.app %>/styles/{,*/}*.css'],
-        tasks: ['newer:copy:styles', 'postcss']
-      },
-      gruntfile: {
-        files: ['Gruntfile.js']
-      },
-      livereload: {
+          banner: '<%= meta.banner %>'
+        },
+        src: [
+          '<%= vendor_files.js %>',
+          'module.prefix',
+          '<%= build_dir %>/src/**/*.js',
+          '<%= html2js.app.dest %>',
+          '<%= html2js.common.dest %>',
+          'module.suffix'
+        ],
+        dest: '<%= compile_dir %>/assets/<%= pkg.name %>-<%= pkg.version %>.js'
+      }
+    },
+
+    /**
+     * `ng-min` annotates the sources before minifying. That is, it allows us
+     * to code without the array syntax.
+     */
+    ngmin: {
+      compile: {
+        files: [
+          {
+            src: [ '<%= app_files.js %>' ],
+            cwd: '<%= build_dir %>',
+            dest: '<%= build_dir %>',
+            expand: true
+          }
+        ]
+      }
+    },
+
+    /**
+     * Minify the sources!
+     */
+    uglify: {
+      compile: {
         options: {
-          livereload: '<%= connect.options.livereload %>'
+          banner: '<%= meta.banner %>'
         },
         files: [
-          '<%= yeoman.app %>/{,*/}*.html',
-          '.tmp/styles/{,*/}*.css',
-          '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
-        ]
-      }
-    },
-
-    // The actual grunt server settings
-    connect: {
-      options: {
-        port: 9000,
-        // Change this to '0.0.0.0' to access the server from outside.
-        hostname: 'localhost',
-        livereload: 35729
-      },
-      livereload: {
-        options: {
-          open: false,
-          middleware: function (connect) {
-            return [
-              connect.static('.tmp'),
-              connect().use(
-                '/bower_components',
-                connect.static('./bower_components')
-              ),
-              connect().use(
-                '/app/styles',
-                connect.static('./app/styles')
-              ),
-              connect.static(appConfig.app)
-            ];
+          {
+            '<%= concat.compile_js.dest %>': '<%= concat.compile_js.dest %>'
           }
-        }
-      },
-      test: {
-        options: {
-          port: 9001,
-          middleware: function (connect) {
-            return [
-              connect.static('.tmp'),
-              connect.static('test'),
-              connect().use(
-                '/bower_components',
-                connect.static('./bower_components')
-              ),
-              connect.static(appConfig.app)
-            ];
-          }
-        }
-      },
-      dist: {
-        options: {
-          open: true,
-          base: '<%= yeoman.dist %>'
-        }
-      }
-    },
-
-    // Make sure there are no obvious mistakes
-    jshint: {
-      options: {
-        jshintrc: '.jshintrc',
-        reporter: require('jshint-stylish')
-      },
-      all: {
-        src: [
-          'Gruntfile.js',
-          '<%= yeoman.app %>/scripts/{,*/}*.js'
         ]
-      },
-      test: {
-        options: {
-          jshintrc: 'test/.jshintrc'
-        },
-        src: ['test/spec/{,*/}*.js']
       }
     },
 
-    // Make sure code styles are up to par
-    jscs: {
-      options: {
-        config: '.jscsrc',
-        verbose: true
-      },
-      all: {
-        src: [
-          'Gruntfile.js',
-          '<%= yeoman.app %>/scripts/{,*/}*.js'
-        ]
-      },
-      test: {
-        src: ['test/spec/{,*/}*.js']
-      }
-    },
-
-    // Empties folders to start fresh
-    clean: {
-      dist: {
-        files: [{
-          dot: true,
-          src: [
-            '.tmp',
-            '<%= yeoman.dist %>/{,*/}*',
-            '!<%= yeoman.dist %>/.git{,*/}*'
-          ]
-        }]
-      },
-      server: '.tmp'
-    },
-
-    // Add vendor prefixed styles
-    postcss: {
-      options: {
-        processors: [
-          require('autoprefixer-core')({browsers: ['last 1 version']})
-        ]
-      },
-      server: {
-        options: {
-          map: true
-        },
-        files: [{
-          expand: true,
-          cwd: '.tmp/styles/',
-          src: '{,*/}*.css',
-          dest: '.tmp/styles/'
-        }]
-      },
-      dist: {
-        files: [{
-          expand: true,
-          cwd: '.tmp/styles/',
-          src: '{,*/}*.css',
-          dest: '.tmp/styles/'
-        }]
-      }
-    },
-
-    // Automatically inject Bower components into the app
-    wiredep: {
-      app: {
-        src: ['<%= yeoman.app %>/index.html'],
-        ignorePath:  /\.\.\//
-      },
-      test: {
-        devDependencies: true,
-        src: '<%= karma.unit.configFile %>',
-        ignorePath:  /\.\.\//,
-        fileTypes:{
-          js: {
-            block: /(([\s\t]*)\/{2}\s*?bower:\s*?(\S*))(\n|\r|.)*?(\/{2}\s*endbower)/gi,
-              detect: {
-                js: /'(.*\.js)'/gi
-              },
-              replace: {
-                js: '\'{{filePath}}\','
-              }
+    /**
+      * `less` compiles less files into css files. does cleanup & so on too.
+      */
+    less: {
+        build: {
+            files: [
+                /* All the themes */
+                {
+                    expand: true,
+                    flatten: true,
+                    cwd: '.',
+                    src: '<%= app_files.less_dir %>/themes/*.less',
+                    dest: '<%= build_dir %>/assets/themes-<%= pkg.version %>',
+                    ext: '.css'
+                },
+                /* Default target */
+                // TODO : remove this "themes-" prefix ?
+                {
+                    "<%= build_dir %>/assets/themes-<%= pkg.version %>/pnpdeliver.css": "<%= app_files.less %>",
+                },
+            ],
+            options: {
+                path: [ "<%= app_files.less_dir %>" ],
+                compress: false,
+                ieCompat: true,
+                cleancss: false
             }
-          }
-      }
-    }, 
-
-    // Renames files for browser caching purposes
-    filerev: {
-      dist: {
-        src: [
-          '<%= yeoman.dist %>/scripts/{,*/}*.js',
-          '<%= yeoman.dist %>/styles/{,*/}*.css',
-          '<%= yeoman.dist %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
-          '<%= yeoman.dist %>/styles/fonts/*'
-        ]
-      }
-    },
-
-    // Reads HTML for usemin blocks to enable smart builds that automatically
-    // concat, minify and revision files. Creates configurations in memory so
-    // additional tasks can operate on them
-    useminPrepare: {
-      html: '<%= yeoman.app %>/index.html',
-      options: {
-        dest: '<%= yeoman.dist %>',
-        flow: {
-          html: {
-            steps: {
-              js: ['concat', 'uglifyjs'],
-              css: ['cssmin']
-            },
-            post: {}
-          }
-        }
-      }
-    },
-
-    // Performs rewrites based on filerev and the useminPrepare configuration
-    usemin: {
-      html: ['<%= yeoman.dist %>/{,*/}*.html'],
-      css: ['<%= yeoman.dist %>/styles/{,*/}*.css'],
-      js: ['<%= yeoman.dist %>/scripts/{,*/}*.js'],
-      options: {
-        assetsDirs: [
-          '<%= yeoman.dist %>',
-          '<%= yeoman.dist %>/images',
-          '<%= yeoman.dist %>/styles'
-        ],
-        patterns: {
-          js: [[/(images\/[^''""]*\.(png|jpg|jpeg|gif|webp|svg))/g, 'Replacing references to images']]
-        }
-      }
-    },
-
-    // The following *-min tasks will produce minified files in the dist folder
-    // By default, your `index.html`'s <!-- Usemin block --> will take care of
-    // minification. These next options are pre-configured if you do not wish
-    // to use the Usemin blocks.
-    // cssmin: {
-    //   dist: {
-    //     files: {
-    //       '<%= yeoman.dist %>/styles/main.css': [
-    //         '.tmp/styles/{,*/}*.css'
-    //       ]
-    //     }
-    //   }
-    // },
-    // uglify: {
-    //   dist: {
-    //     files: {
-    //       '<%= yeoman.dist %>/scripts/scripts.js': [
-    //         '<%= yeoman.dist %>/scripts/scripts.js'
-    //       ]
-    //     }
-    //   }
-    // },
-    // concat: {
-    //   dist: {}
-    // },
-
-    imagemin: {
-      dist: {
-        files: [{
-          expand: true,
-          cwd: '<%= yeoman.app %>/images',
-          src: '{,*/}*.{png,jpg,jpeg,gif}',
-          dest: '<%= yeoman.dist %>/images'
-        }]
-      }
-    },
-
-    svgmin: {
-      dist: {
-        files: [{
-          expand: true,
-          cwd: '<%= yeoman.app %>/images',
-          src: '{,*/}*.svg',
-          dest: '<%= yeoman.dist %>/images'
-        }]
-      }
-    },
-
-    htmlmin: {
-      dist: {
-        options: {
-          collapseWhitespace: true,
-          conservativeCollapse: true,
-          collapseBooleanAttributes: true,
-          removeCommentsFromCDATA: true
         },
-        files: [{
-          expand: true,
-          cwd: '<%= yeoman.dist %>',
-          src: ['*.html'],
-          dest: '<%= yeoman.dist %>'
-        }]
-      }
-    },
-
-    ngtemplates: {
-      dist: {
-        options: {
-          module: 'pnpdeliverApp',
-          htmlmin: '<%= htmlmin.dist.options %>',
-          usemin: 'scripts/scripts.js'
+        compile: {
+            files: [
+                /* All the themes */
+                {
+                    expand: true,
+                    flatten: true,
+                    cwd: '.',
+                    src: '<%= app_files.less_dir %>/themes/*.less',
+                    dest: '<%= build_dir %>/assets/themes-<%= pkg.version %>',
+                    ext: '.css'
+                },
+                /* Default target */
+                {
+                    "<%= build_dir %>/assets/pnpdeliver.css": "<%= app_files.less %>"
+                },
+            ],
+            options: {
+                path: [ "<%= app_files.less_dir %>" ],
+                compress: true,
+                ieCompat: true,
+                cleancss: true
+            }
         },
-        cwd: '<%= yeoman.app %>',
-        src: 'views/{,*/}*.html',
-        dest: '.tmp/templateCache.js'
-      }
     },
 
-    // ng-annotate tries to make the code safe for minification automatically
-    // by using the Angular long form for dependency injection.
-    ngAnnotate: {
-      dist: {
-        files: [{
-          expand: true,
-          cwd: '.tmp/concat/scripts',
-          src: '*.js',
-          dest: '.tmp/concat/scripts'
-        }]
-      }
-    },
-
-    // Replace Google CDN references
-    cdnify: {
-      dist: {
-        html: ['<%= yeoman.dist %>/*.html']
-      }
-    },
-
-    // Copies remaining files to places other tasks can use
-    copy: {
-      dist: {
-        files: [{
-          expand: true,
-          dot: true,
-          cwd: '<%= yeoman.app %>',
-          dest: '<%= yeoman.dist %>',
-          src: [
-            '*.{ico,png,txt}',
-            '*.html',
-            'images/{,*/}*.{webp}',
-            'styles/fonts/{,*/}*.*'
-          ]
-        }, {
-          expand: true,
-          cwd: '.tmp/images',
-          dest: '<%= yeoman.dist %>/images',
-          src: ['generated/*']
-        }, {
-          expand: true,
-          cwd: 'bower_components/bootstrap/dist',
-          src: 'fonts/*',
-          dest: '<%= yeoman.dist %>'
-        }]
-      },
-      styles: {
-        expand: true,
-        cwd: '<%= yeoman.app %>/styles',
-        dest: '.tmp/styles/',
-        src: '{,*/}*.css'
-      }
-    },
-
-    // Run some tasks in parallel to speed up the build process
-    concurrent: {
-      server: [
-        'copy:styles'
+    /**
+     * `jshint` defines the rules of our linter as well as which files we
+     * should check. This file, all javascript sources, and all our unit tests
+     * are linted based on the policies listed in `options`. But we can also
+     * specify exclusionary patterns by prefixing them with an exclamation
+     * point (!); this is useful when code comes from a third party but is
+     * nonetheless inside `src/`.
+     */
+    jshint: {
+      src: [
+        '<%= app_files.js %>'
       ],
       test: [
-        'copy:styles'
+        '<%= app_files.jsunit %>'
       ],
-      dist: [
-        'copy:styles',
-        'imagemin',
-        'svgmin'
-      ]
+      gruntfile: [
+        'Gruntfile.js'
+      ],
+      options: {
+        curly: true,
+        immed: true,
+        newcap: true,
+        noarg: true,
+        sub: true,
+        boss: true,
+        eqnull: true
+      },
+      globals: {}
     },
 
-    // Test settings
-    karma: {
-      unit: {
-        configFile: 'test/karma.conf.js',
-        singleRun: true
+    /**
+     * HTML2JS is a Grunt plugin that takes all of your template files and
+     * places them into JavaScript files as strings that are added to
+     * AngularJS's template cache. This means that the templates too become
+     * part of the initial payload as one JavaScript file. Neat!
+     */
+    html2js: {
+      /**
+       * These are the templates from `src/app`.
+       */
+      app: {
+        options: {
+          base: 'src/app'
+        },
+        src: [ '<%= app_files.atpl %>' ],
+        dest: '<%= build_dir %>/templates-app.js'
+      },
+
+      /**
+       * These are the templates from `src/common`.
+       */
+      common: {
+        options: {
+          base: 'src/common'
+        },
+        src: [ '<%= app_files.ctpl %>' ],
+        dest: '<%= build_dir %>/templates-common.js'
       }
+    },
+
+    /**
+     * The Karma configurations.
+     */
+    karma: {
+      options: {
+        configFile: '<%= build_dir %>/karma-unit.js'
+      },
+      unit: {
+        runnerPort: 9018,
+        background: true,
+        singleRun: false
+      }
+    },
+
+    /**
+     * The `index` task compiles the `index.html` file as a Grunt template. CSS
+     * and JS files co-exist here but they get split apart later.
+     */
+    index: {
+
+      /**
+       * During development, we don't want to have wait for compilation,
+       * concatenation, minification, etc. So to avoid these steps, we simply
+       * add all script files directly to the `<head>` of `index.html`. The
+       * `src` property contains the list of included files.
+       */
+      build: {
+        dir: '<%= build_dir %>',
+        src: [
+          '<%= vendor_files.js %>',
+          '<%= build_dir %>/src/**/*.js',
+          '<%= html2js.common.dest %>',
+          '<%= html2js.app.dest %>',
+          '<%= vendor_files.css %>',
+          "<%= build_dir %>/assets/<%= pkg.name %>-<%= pkg.version %>.css"
+        ]
+      },
+
+      /**
+       * When it is time to have a completely compiled application, we can
+       * alter the above to include only a single JavaScript and a single CSS
+       * file. Now we're back!
+       */
+      compile: {
+        dir: '<%= compile_dir %>',
+        src: [
+          '<%= concat.compile_js.dest %>',
+          '<%= vendor_files.css %>',
+          "<%= build_dir %>/assets/<%= pkg.name %>-<%= pkg.version %>.css"
+        ]
+      }
+    },
+
+    /**
+     * This task compiles the karma template so that changes to its file array
+     * don't have to be managed manually.
+     */
+    karmaconfig: {
+      unit: {
+        dir: '<%= build_dir %>',
+        src: [
+          '<%= vendor_files.js %>',
+          '<%= html2js.app.dest %>',
+          '<%= html2js.common.dest %>',
+          '<%= test_files.js %>'
+        ]
+      }
+    },
+
+    /**
+     * And for rapid development, we have a watch set up that checks to see if
+     * any of the files listed below change, and then to execute the listed
+     * tasks when they do. This just saves us from having to type "grunt" into
+     * the command-line every time we want to see what we're working on; we can
+     * instead just leave "grunt watch" running in a background terminal. Set it
+     * and forget it, as Ron Popeil used to tell us.
+     *
+     * But we don't need the same thing to happen for all the files.
+     */
+    delta: {
+      /**
+       * By default, we want the Live Reload to work for all tasks; this is
+       * overridden in some tasks (like this file) where browser resources are
+       * unaffected. It runs by default on port 35729, which your browser
+       * plugin should auto-detect.
+       */
+      options: {
+        livereload: true
+      },
+
+      /**
+       * When the Gruntfile changes, we just want to lint it. In fact, when
+       * your Gruntfile changes, it will automatically be reloaded!
+       */
+      gruntfile: {
+        files: 'Gruntfile.js',
+        tasks: [ 'jshint:gruntfile' ],
+        options: {
+          livereload: false
+        }
+      },
+
+      /**
+       * When our JavaScript source files change, we want to run lint them and
+       * run our unit tests.
+       */
+      jssrc: {
+        files: [
+          '<%= app_files.js %>'
+        ],
+        tasks: [ 'jshint:src', 'copy:build_appjs' ]
+      },
+
+      /**
+       * When assets are changed, copy them. Note that this will *not* copy new
+       * files, so this is probably not very useful.
+       */
+      assets: {
+        files: [
+          'src/assets/**/*'
+        ],
+        tasks: [ 'copy:build_assets' ]
+      },
+
+      /**
+       * When index.html changes, we need to compile it.
+       */
+      html: {
+        files: [ '<%= app_files.html %>' ],
+        tasks: [ 'index:build' ]
+      },
+
+      /**
+       * When our templates change, we only rewrite the template cache.
+       */
+      tpls: {
+        files: [
+          '<%= app_files.atpl %>',
+          '<%= app_files.ctpl %>'
+        ],
+        tasks: [ 'html2js' ]
+      },
+
+      /**
+       * When the CSS files change, we need to compile and minify them.
+       */
+      less: {
+        files: [ 'src/**/*.less' ],
+        tasks: [ 'less:build' ]
+      },
+
+      /**
+       * When a JavaScript unit test file changes, we only want to lint it and
+       * run the unit tests. We don't want to do any live reloading.
+       */
+      jsunit: {
+        files: [
+          '<%= app_files.jsunit %>'
+        ],
+        tasks: [ 'jshint:test' ],
+        options: {
+          livereload: false
+        }
+      }
+
     }
-  });
+  };
 
+  grunt.initConfig( grunt.util._.extend( taskConfig, userConfig ) );
 
-  grunt.registerTask('serve', 'Compile then start a connect web server', function (target) {
-    if (target === 'dist') {
-      return grunt.task.run(['build', 'connect:dist:keepalive']);
-    }
+  /**
+   * In order to make it safe to just compile or copy *only* what was changed,
+   * we need to ensure we are starting from a clean, fresh build. So we rename
+   * the `watch` task to `delta` (that's why the configuration var above is
+   * `delta`) and then add a new task called `watch` that does a clean build
+   * before watching for changes.
+   */
+  grunt.renameTask( 'watch', 'delta' );
+  grunt.registerTask( 'watch', [ 'build', 'delta' ] );
 
-    grunt.task.run([
-      'clean:server',
-      'wiredep',
-      'concurrent:server',
-      'postcss:server',
-      'connect:livereload',
-      'watch'
-    ]);
-  });
+  /**
+   * The default task is to build and compile.
+   */
+  grunt.registerTask( 'default', [ 'build', 'compile' ] );
 
-  grunt.registerTask('server', 'DEPRECATED TASK. Use the "serve" task instead', function (target) {
-    grunt.log.warn('The `server` task has been deprecated. Use `grunt serve` to start a server.');
-    grunt.task.run(['serve:' + target]);
-  });
-
-  grunt.registerTask('test', [
-    'clean:server',
-    'wiredep',
-    'concurrent:test',
-    'postcss',
-    'connect:test',
-    'karma'
+  /**
+   * The `build` task gets your app ready to run for development and testing.
+   */
+  grunt.registerTask( 'build', [
+    'clean', 'html2js', 'jshint', 'less:build',
+    'concat:build_css', 'copy:build_app_assets', 'copy:build_vendor_assets',
+    'copy:build_appjs', 'copy:build_vendorjs', 'index:build'
   ]);
 
-  grunt.registerTask('build', [
-    'clean:dist',
-    'wiredep',
-    'useminPrepare',
-    'concurrent:dist',
-    'postcss',
-    'ngtemplates',
-    'concat',
-    'ngAnnotate',
-    'copy:dist',
-    'cdnify',
-    'cssmin',
-    'uglify',
-    'filerev',
-    'usemin',
-    'htmlmin'
+  /**
+   * The `compile` task gets your app ready for deployment by concatenating and
+   * minifying your code.
+   */
+  grunt.registerTask( 'compile', [
+    'less:compile', 'copy:build_assets', 'ngmin', 'concat:compile_js', 'uglify', 'index:compile'
   ]);
 
-  grunt.registerTask('default', [
-    'newer:jshint',
-    'newer:jscs',
-    'test',
-    'build'
-  ]);
+  /**
+   * A utility function to get all app JavaScript sources.
+   */
+  function filterForJS ( files ) {
+    return files.filter( function ( file ) {
+      return file.match( /\.js$/ );
+    });
+  }
+
+  /**
+   * A utility function to get all app CSS sources.
+   */
+  function filterForCSS ( files ) {
+    return files.filter( function ( file ) {
+      return file.match( /\.css$/ );
+    });
+  }
+
+  /**
+   * The index.html template includes the stylesheet and javascript sources
+   * based on dynamic names calculated in this Gruntfile. This task assembles
+   * the list into variables for the template to use and then runs the
+   * compilation.
+   */
+  grunt.registerMultiTask( 'index', 'Process index.html template', function () {
+    var dirRE = new RegExp( '^('+grunt.config('build_dir')+'|'+grunt.config('compile_dir')+')\/', 'g' );
+    var jsFiles = filterForJS( this.filesSrc ).map( function ( file ) {
+      return file.replace( dirRE, '' );
+    });
+    var cssFiles = filterForCSS( this.filesSrc ).map( function ( file ) {
+      return file.replace( dirRE, '' );
+    });
+
+    grunt.file.copy('src/index.html', this.data.dir + '/index.html', {
+      process: function ( contents, path ) {
+        return grunt.template.process( contents, {
+          data: {
+            scripts: jsFiles,
+            styles: cssFiles,
+            version: grunt.config( 'pkg.version' ),
+            theme_name: grunt.config('theme_name')
+          }
+        });
+      }
+    });
+  });
+
+  /**
+   * In order to avoid having to specify manually the files needed for karma to
+   * run, we use grunt to manage the list for us. The `karma/*` files are
+   * compiled as grunt templates for use by Karma. Yay!
+   */
+  grunt.registerMultiTask( 'karmaconfig', 'Process karma config templates', function () {
+    var jsFiles = filterForJS( this.filesSrc );
+
+    grunt.file.copy( 'karma/karma-unit.tpl.js', grunt.config( 'build_dir' ) + '/karma-unit.js', {
+      process: function ( contents, path ) {
+        return grunt.template.process( contents, {
+          data: {
+            scripts: jsFiles
+          }
+        });
+      }
+    });
+  });
+
 };
