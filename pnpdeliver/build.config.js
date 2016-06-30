@@ -64,6 +64,7 @@ module.exports = {
    */
   vendor_files: {
     js: [
+      'bower_components/file-saver/FileSaver.js',
       'bower_components/jquery/dist/jquery.js',
       'bower_components/angular/angular.js',
       'bower_components/angular-animate/angular-animate.js',

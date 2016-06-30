@@ -1,19 +1,14 @@
-/**
- * @ngdoc function
- * @name pnpdeliverApp.controller:TestCtrl
- * @description
- * # TestCtrl
- * Controller of the pnpdeliverApp
- */
 angular.module('pnpdeliverApp')
   .controller('TestCtrl', function (
-    $scope, _,
+    $scope, $http, $routeParams,
+    _, saveAs,
     Exemples
   ) {
     $scope.print = function () {
       window.print();
     };
     $scope.model = {
+      version: '0.0.5',
       pageFormat: 'A4',
       rows: 3,
       cols: 3,
@@ -27,6 +22,13 @@ angular.module('pnpdeliverApp')
       imageVShift: 0,
       decks: [],
       pages: []
+    };
+    $scope.othermodel = {
+      distantJson: (
+        $routeParams.load ?
+        $routeParams.load :
+        ''
+      )
     };
     $scope.imagesUrls = '';
     $scope.addCard = function(card) {
@@ -64,7 +66,6 @@ angular.module('pnpdeliverApp')
           urls.push(imageUrl);
         }
       });
-      console.log(urls);
       if (urls.length > 0) {
         $scope.model.decks.push({
           name: 'New deck',
@@ -78,6 +79,29 @@ angular.module('pnpdeliverApp')
         });
       }
     };
+    $scope.loadJson = function() {
+      if (!$scope.othermodel.distantJson) {
+        return;
+      }
+      $http.get($scope.othermodel.distantJson).success(function(loaded) {
+        if ($scope.model.version === loaded.version) {
+          // TODO : tester
+          $scope.model = loaded;
+        } else {
+          alert('Format non reconnu (version ' + loaded.version + ').');
+        }
+      });
+    };
+    $scope.saveJson = function() {
+      saveAs(
+        new Blob([angular.toJson($scope.model)],
+                 {type: 'application/json;charset=utf-8'}),
+        'mydeck.json'
+      );
+    };
+    if ($scope.othermodel.distantJson) {
+      $scope.loadJson();
+    }
     $scope.$watch('model', function(n) {
       if (angular.isUndefined(n)) {
         return;
