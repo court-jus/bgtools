@@ -119,6 +119,21 @@ div {
           opacity: 0.5;
         }
       }
+      &.rotate-cw {
+        img.back {
+          transform: rotate(90deg);
+        }
+      }
+      &.rotate-ccw {
+        img.back {
+          transform: rotate(-90deg);
+        }
+      }
+    }
+  }
+  &.page-back {
+    .cards {
+      flex-direction: row-reverse;
     }
   }
 }

@@ -36,6 +36,9 @@ angular.module('pnpdeliverApp')
           currentPage = [],
           cardsPerPage = ($scope.model.rows * $scope.model.cols),
           push = true;
+      if ($scope.model.backFormat === 'sidebyside') {
+        cardsPerPage = cardsPerPage / 2;
+      }
       if ($scope.model.pages.length > 0) {
         lastPage = $scope.model.pages[$scope.model.pages.length - 1];
         if (lastPage.length < cardsPerPage) {
@@ -51,6 +54,9 @@ angular.module('pnpdeliverApp')
     $scope.completePage = function(card) {
       var lastPage,
           cardsPerPage = ($scope.model.rows * $scope.model.cols);
+      if ($scope.model.backFormat === 'sidebyside') {
+        cardsPerPage = cardsPerPage / 2;
+      }
       if ($scope.model.pages.length > 0) {
         lastPage = $scope.model.pages[$scope.model.pages.length - 1];
         while((lastPage.length < cardsPerPage) &&
@@ -102,9 +108,19 @@ angular.module('pnpdeliverApp')
     if ($scope.othermodel.distantJson) {
       $scope.loadJson();
     }
-    $scope.$watch('model', function(n) {
+    $scope.$watch('model', function(n, o) {
       if (angular.isUndefined(n)) {
         return;
+      }
+      if (((n.backFormat === 'sidebyside' && o.backFormat !== 'sidebyside') ||
+           (n.backFormat !== 'sidebyside' && o.backFormat === 'sidebyside')) &&
+          (angular.isDefined(o.backFormat))) {
+        console.log(n.backFormat, o.backFormat);
+        var t = $scope.model.cardWidth;
+        $scope.model.cardWidth = $scope.model.cardHeight;
+        $scope.model.cardHeight = t;
+        $scope.model.imageHShift += ($scope.model.cardWidth - $scope.model.cardHeight) / 2;
+        $scope.model.imageVShift += ($scope.model.cardHeight - $scope.model.cardWidth) / 2;
       }
       $scope.model.pages = [];
       var currentPage = [],
@@ -133,10 +149,12 @@ angular.module('pnpdeliverApp')
         commonCardback: 'assets/images/white.png',
         cards: [{
           imageUrl: 'https://lh3.googleusercontent.com/yqS9KsQmKnmsePr4wUPghmuJLYYshVUNz5oXTT5h-LifxC-plld8eXKupYt8L_uWcbD4GJQ26EisnmssJQ8JDJFW655KlnVs3dlcmapFLvQcLSC92ALl7ZvTY3lnsDhTEFNkg3eQXObrkEnuYkTXp8zxUcNSlLYgfUDnxtYcrZbWY52g4l_yNPHAxsyiTzHfDYkRf4FJjPDfCiTAFv9nU5eJBmZyW2uhM4Fiq5_I802Hi-9F4a7py2rlmfXHFx0fflUdQdCJegFa_uQ_VwcCNoaadC_Dz5fXbHDkTWNQhYEEAPGoy3TnYbZscLhaX9VYVsZ1tzG5-zPEoo-myis3hx0WUJ6XRWBcfdifM4GYCkFW7vamWI6gx7i9zvkhiy9VULr2NUHE5BhklB25hkfoL-zmrVHBOFQj8MXqJWMGgkS7aYIzoIG1hfS9DO-c9eJ1J_XdvnJXeHuXKNY5A4qpLx_SMgNLkVsF5l-LHknRmWDd_aYD9s96iHd6BCPv3Lbk9tmMOEbyuULlHakcqbZV721-joRxU0-YcT9OY5w_fQXT0w7299UGTgOhDh99L89pWG5agRKNtyMmguo5XFEXJtyVpGyyoLxc=w672-h940-no',
-          count: 6
+          cardBack: 'https://thumbs.dreamstime.com/x/playing-card-back-side-60x90-mm-17679108.jpg',
+          count: 2
         }, {
           imageUrl: 'https://lh3.googleusercontent.com/7zYYD3uOtWHZyD4Z3uYz5Rhqijwj4YubWOKEAYZiPmb_0vB2QvGfTXIEl2Bcky9vUikSR0rPQyb8UrnfZ0Qb7-mw6mys_DyYnzzDT5OvWo77_n2tcEFTgTQRNg0KlSNMkTITlmjx4k_AXlz1-XZ4U_ADH8Fk0kCSa4RRsjtRULX8Mi83k5z4WpQQi0WQ15Q3wzbOO_49XWvrvm50KHr2ywgWi0WaK0waYP5DdjY1tYqKwy5jy8rM4-rs9D-jt5J0Z2zOK_UK9DF3CRZCU60EvnG7ZqcIsuylcfXWKpfbCvBmuxL7t62of13twgypTreT6gMt2zmXLKMvtkwASNI-pDlXkqq8PRsx-i0p8OOwfYdq9o-tPaOz9agNiIDi6kAffYIiMl4lYhIBpvb6EO7xHP4TZBsl0UYGBfEhxQiLgwpDrDdNyE4tu-KRpBn7ldraM2tIl2BpfnZqrBLuHFES5-bo463b401uaqPHEFmbDESkB1KwVLMHCLJ58saOTwCFj8CNsoy3onJ5x7a_ndYmYBgw00YhUbAxQ5G1TqpxjPPUeCx0WoWhARg1XRpyQjLcF23Ri-fsPCiYdm-8RFsu47mqxXO4NoUg=w672-h940-no',
-          count: 6
+          cardBack: 'http://www.jimknapp.com/Cards/Non-Bicycle_files/image002.jpg',
+          count: 3
         }]
       }]
     };
