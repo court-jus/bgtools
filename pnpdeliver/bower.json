@@ -1,6 +1,6 @@
 {
   "name": "pnpdeliver",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "devDependencies": {
     "angular": "~1.5.7",
     "angular-route": "~1.5.7",

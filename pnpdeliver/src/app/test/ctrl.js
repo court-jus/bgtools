@@ -21,14 +21,24 @@ angular.module('pnpdeliverApp')
       imageHShift: 0,
       imageVShift: 0,
       decks: [],
-      pages: []
+      pages: [],
+      cropmarks: {
+        showOnFront: true,
+        showOnBack: false,
+        thickness: 0.02,
+        margin: 0.01
+      }
     };
     $scope.othermodel = {
       distantJson: (
         $routeParams.load ?
         $routeParams.load :
         ''
-      )
+      ),
+      allCardsWidth: 0,
+      allCardsHeight: 0,
+      topMargin: 0,
+      leftMargin: 0
     };
     $scope.imagesUrls = '';
     $scope.addCard = function(card) {
@@ -105,6 +115,9 @@ angular.module('pnpdeliverApp')
         'mydeck.json'
       );
     };
+    $scope.range = function(num) {
+      return new Array(num);
+    };
     if ($scope.othermodel.distantJson) {
       $scope.loadJson();
     }
@@ -139,7 +152,14 @@ angular.module('pnpdeliverApp')
         });
       });
       $scope.completePage(defaultCard);
-      $scope.downloadablejson = encodeURIComponent(JSON.stringify($scope.model));
+      var pageWidth = ($scope.model.pageFormat === 'A4' ? 8.26772 : 8.5),
+          pageHeight = ($scope.model.pageFormat === 'A4' ? 11.6929 : 11);
+      $scope.othermodel.fullcardWidth = $scope.model.cardWidth + $scope.model.hMargin * 2;
+      $scope.othermodel.fullcardHeight = $scope.model.cardHeight + $scope.model.vMargin * 2;
+      $scope.othermodel.allCardsWidth = $scope.othermodel.fullcardWidth * $scope.model.cols;
+      $scope.othermodel.allCardsHeigth = $scope.othermodel.fullcardHeight * $scope.model.rows;
+      $scope.othermodel.leftMargin = (pageWidth - $scope.othermodel.allCardsWidth) / 2 + $scope.model.hMargin;
+      $scope.othermodel.topMargin = (pageHeight - $scope.othermodel.allCardsHeigth) / 2 + $scope.model.vMargin;
     }, true);
   })
   .service('Exemples', function() {
