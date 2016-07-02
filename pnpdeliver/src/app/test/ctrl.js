@@ -157,9 +157,9 @@ angular.module('pnpdeliverApp')
       $scope.othermodel.fullcardWidth = $scope.model.cardWidth + $scope.model.hMargin * 2;
       $scope.othermodel.fullcardHeight = $scope.model.cardHeight + $scope.model.vMargin * 2;
       $scope.othermodel.allCardsWidth = $scope.othermodel.fullcardWidth * $scope.model.cols;
-      $scope.othermodel.allCardsHeigth = $scope.othermodel.fullcardHeight * $scope.model.rows;
+      $scope.othermodel.allCardsHeight = $scope.othermodel.fullcardHeight * $scope.model.rows;
       $scope.othermodel.leftMargin = (pageWidth - $scope.othermodel.allCardsWidth) / 2 + $scope.model.hMargin;
-      $scope.othermodel.topMargin = (pageHeight - $scope.othermodel.allCardsHeigth) / 2 + $scope.model.vMargin;
+      $scope.othermodel.topMargin = (pageHeight - $scope.othermodel.allCardsHeight) / 2 + $scope.model.vMargin;
     }, true);
   })
   .service('Exemples', function() {

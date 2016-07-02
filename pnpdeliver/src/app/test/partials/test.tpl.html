@@ -205,60 +205,80 @@
       <!-- Top cropmarks -->
       <div class="cropmark"
            ng-show="model.cropmarks.showOnFront"
+           style="left: {{ othermodel.leftMargin - model.cropmarks.thickness }}in;
+                  top: {{ model.cropmarks.margin }}in;
+                  height: {{ othermodel.topMargin - model.cropmarks.margin * 2 }}in;
+                  width: {{ model.cropmarks.thickness }}in;">&nbsp;</div>
+      <div class="cropmark"
+           ng-show="model.cropmarks.showOnFront && !$last"
            ng-repeat="a in range(model.cols) track by $index"
-           style="left: {{ othermodel.leftMargin + othermodel.fullcardWidth * $index }}in;
+           style="left: {{ othermodel.leftMargin + othermodel.fullcardWidth * ($index + 1) - model.hMargin - model.cropmarks.thickness / 2 }}in;
                   top: {{ model.cropmarks.margin }}in;
                   height: {{ othermodel.topMargin - model.cropmarks.margin * 2 }}in;
                   width: {{ model.cropmarks.thickness }}in;">&nbsp;</div>
       <div class="cropmark"
            ng-show="model.cropmarks.showOnFront"
-           ng-repeat="a in range(model.cols) track by $index"
-           style="left: {{ othermodel.leftMargin + model.cardWidth - model.cropmarks.thickness + othermodel.fullcardWidth * $index }}in;
+           style="left: {{ othermodel.leftMargin + othermodel.allCardsWidth - model.cropmarks.thickness - 2 * model.hMargin }}in;
                   top: {{ model.cropmarks.margin }}in;
                   height: {{ othermodel.topMargin - model.cropmarks.margin * 2 }}in;
                   width: {{ model.cropmarks.thickness }}in;">&nbsp;</div>
       <!-- Bottom cropmarks -->
       <div class="cropmark"
            ng-show="model.cropmarks.showOnFront"
+           style="left: {{ othermodel.leftMargin - model.cropmarks.thickness }}in;
+                  bottom: {{ model.cropmarks.margin }}in;
+                  height: {{ othermodel.topMargin - model.cropmarks.margin * 2 }}in;
+                  width: {{ model.cropmarks.thickness }}in;">&nbsp;</div>
+      <div class="cropmark"
+           ng-show="model.cropmarks.showOnFront && !$last"
            ng-repeat="a in range(model.cols) track by $index"
-           style="left: {{ othermodel.leftMargin + othermodel.fullcardWidth * $index }}in;
+           style="left: {{ othermodel.leftMargin + othermodel.fullcardWidth * ($index + 1) - model.hMargin - model.cropmarks.thickness / 2 }}in;
                   bottom: {{ model.cropmarks.margin }}in;
                   height: {{ othermodel.topMargin - model.cropmarks.margin * 2 }}in;
                   width: {{ model.cropmarks.thickness }}in;">&nbsp;</div>
       <div class="cropmark"
            ng-show="model.cropmarks.showOnFront"
-           ng-repeat="a in range(model.cols) track by $index"
-           style="left: {{ othermodel.leftMargin + model.cardWidth - model.cropmarks.thickness + othermodel.fullcardWidth * $index }}in;
+           style="left: {{ othermodel.leftMargin + othermodel.allCardsWidth - model.cropmarks.thickness - 2 * model.hMargin }}in;
                   bottom: {{ model.cropmarks.margin }}in;
                   height: {{ othermodel.topMargin - model.cropmarks.margin * 2 }}in;
                   width: {{ model.cropmarks.thickness }}in;">&nbsp;</div>
       <!-- Left cropmarks -->
       <div class="cropmark"
            ng-show="model.cropmarks.showOnFront"
-           ng-repeat="a in range(model.rows) track by $index"
-           style="top: {{ othermodel.topMargin + othermodel.fullcardHeight * $index }}in;
+           style="top: {{ othermodel.topMargin - model.cropmarks.thickness }}in;
+                  left: {{ model.cropmarks.margin }}in;
+                  width: {{ othermodel.leftMargin - model.cropmarks.margin * 2 }}in;
+                  height: {{ model.cropmarks.thickness }}in;">&nbsp;</div>
+      <div class="cropmark"
+           ng-show="model.cropmarks.showOnFront && !$last"
+           ng-repeat="a in range(model.cols) track by $index"
+           style="top: {{ othermodel.topMargin + othermodel.fullcardHeight * ($index + 1) - model.vMargin - model.cropmarks.thickness / 2 }}in;
                   left: {{ model.cropmarks.margin }}in;
                   width: {{ othermodel.leftMargin - model.cropmarks.margin * 2 }}in;
                   height: {{ model.cropmarks.thickness }}in;">&nbsp;</div>
       <div class="cropmark"
            ng-show="model.cropmarks.showOnFront"
-           ng-repeat="a in range(model.rows) track by $index"
-           style="top: {{ othermodel.topMargin + model.cardHeight - model.cropmarks.thickness + othermodel.fullcardHeight * $index }}in;
+           style="top: {{ othermodel.topMargin + othermodel.allCardsHeight - model.cropmarks.thickness - 2 * model.vMargin }}in;
                   left: {{ model.cropmarks.margin }}in;
                   width: {{ othermodel.leftMargin - model.cropmarks.margin * 2 }}in;
                   height: {{ model.cropmarks.thickness }}in;">&nbsp;</div>
       <!-- Right cropmarks -->
       <div class="cropmark"
            ng-show="model.cropmarks.showOnFront"
-           ng-repeat="a in range(model.rows) track by $index"
-           style="top: {{ othermodel.topMargin + othermodel.fullcardHeight * $index }}in;
+           style="top: {{ othermodel.topMargin - model.cropmarks.thickness }}in;
+                  right: {{ model.cropmarks.margin }}in;
+                  width: {{ othermodel.leftMargin - model.cropmarks.margin * 2 }}in;
+                  height: {{ model.cropmarks.thickness }}in;">&nbsp;</div>
+      <div class="cropmark"
+           ng-show="model.cropmarks.showOnFront && !$last"
+           ng-repeat="a in range(model.cols) track by $index"
+           style="top: {{ othermodel.topMargin + othermodel.fullcardHeight * ($index + 1) - model.vMargin - model.cropmarks.thickness / 2 }}in;
                   right: {{ model.cropmarks.margin }}in;
                   width: {{ othermodel.leftMargin - model.cropmarks.margin * 2 }}in;
                   height: {{ model.cropmarks.thickness }}in;">&nbsp;</div>
       <div class="cropmark"
            ng-show="model.cropmarks.showOnFront"
-           ng-repeat="a in range(model.rows) track by $index"
-           style="top: {{ othermodel.topMargin + model.cardHeight - model.cropmarks.thickness + othermodel.fullcardHeight * $index }}in;
+           style="top: {{ othermodel.topMargin + othermodel.allCardsHeight - model.cropmarks.thickness - 2 * model.vMargin }}in;
                   right: {{ model.cropmarks.margin }}in;
                   width: {{ othermodel.leftMargin - model.cropmarks.margin * 2 }}in;
                   height: {{ model.cropmarks.thickness }}in;">&nbsp;</div>
@@ -305,60 +325,80 @@
       <!-- Top cropmarks -->
       <div class="cropmark"
            ng-show="model.cropmarks.showOnBack"
+           style="left: {{ othermodel.leftMargin - model.cropmarks.thickness }}in;
+                  top: {{ model.cropmarks.margin }}in;
+                  height: {{ othermodel.topMargin - model.cropmarks.margin * 2 }}in;
+                  width: {{ model.cropmarks.thickness }}in;">&nbsp;</div>
+      <div class="cropmark"
+           ng-show="model.cropmarks.showOnBack && !$last"
            ng-repeat="a in range(model.cols) track by $index"
-           style="left: {{ othermodel.leftMargin + othermodel.fullcardWidth * $index }}in;
+           style="left: {{ othermodel.leftMargin + othermodel.fullcardWidth * ($index + 1) - model.hMargin - model.cropmarks.thickness / 2 }}in;
                   top: {{ model.cropmarks.margin }}in;
                   height: {{ othermodel.topMargin - model.cropmarks.margin * 2 }}in;
                   width: {{ model.cropmarks.thickness }}in;">&nbsp;</div>
       <div class="cropmark"
            ng-show="model.cropmarks.showOnBack"
-           ng-repeat="a in range(model.cols) track by $index"
-           style="left: {{ othermodel.leftMargin + model.cardWidth - model.cropmarks.thickness + othermodel.fullcardWidth * $index }}in;
+           style="left: {{ othermodel.leftMargin + othermodel.allCardsWidth - model.cropmarks.thickness - 2 * model.hMargin }}in;
                   top: {{ model.cropmarks.margin }}in;
                   height: {{ othermodel.topMargin - model.cropmarks.margin * 2 }}in;
                   width: {{ model.cropmarks.thickness }}in;">&nbsp;</div>
       <!-- Bottom cropmarks -->
       <div class="cropmark"
            ng-show="model.cropmarks.showOnBack"
+           style="left: {{ othermodel.leftMargin - model.cropmarks.thickness }}in;
+                  bottom: {{ model.cropmarks.margin }}in;
+                  height: {{ othermodel.topMargin - model.cropmarks.margin * 2 }}in;
+                  width: {{ model.cropmarks.thickness }}in;">&nbsp;</div>
+      <div class="cropmark"
+           ng-show="model.cropmarks.showOnBack && !$last"
            ng-repeat="a in range(model.cols) track by $index"
-           style="left: {{ othermodel.leftMargin + othermodel.fullcardWidth * $index }}in;
+           style="left: {{ othermodel.leftMargin + othermodel.fullcardWidth * ($index + 1) - model.hMargin - model.cropmarks.thickness / 2 }}in;
                   bottom: {{ model.cropmarks.margin }}in;
                   height: {{ othermodel.topMargin - model.cropmarks.margin * 2 }}in;
                   width: {{ model.cropmarks.thickness }}in;">&nbsp;</div>
       <div class="cropmark"
            ng-show="model.cropmarks.showOnBack"
-           ng-repeat="a in range(model.cols) track by $index"
-           style="left: {{ othermodel.leftMargin + model.cardWidth - model.cropmarks.thickness + othermodel.fullcardWidth * $index }}in;
+           style="left: {{ othermodel.leftMargin + othermodel.allCardsWidth - model.cropmarks.thickness - 2 * model.hMargin }}in;
                   bottom: {{ model.cropmarks.margin }}in;
                   height: {{ othermodel.topMargin - model.cropmarks.margin * 2 }}in;
                   width: {{ model.cropmarks.thickness }}in;">&nbsp;</div>
       <!-- Left cropmarks -->
       <div class="cropmark"
            ng-show="model.cropmarks.showOnBack"
-           ng-repeat="a in range(model.rows) track by $index"
-           style="top: {{ othermodel.topMargin + othermodel.fullcardHeight * $index }}in;
+           style="top: {{ othermodel.topMargin - model.cropmarks.thickness }}in;
+                  left: {{ model.cropmarks.margin }}in;
+                  width: {{ othermodel.leftMargin - model.cropmarks.margin * 2 }}in;
+                  height: {{ model.cropmarks.thickness }}in;">&nbsp;</div>
+      <div class="cropmark"
+           ng-show="model.cropmarks.showOnBack && !$last"
+           ng-repeat="a in range(model.cols) track by $index"
+           style="top: {{ othermodel.topMargin + othermodel.fullcardHeight * ($index + 1) - model.vMargin - model.cropmarks.thickness / 2 }}in;
                   left: {{ model.cropmarks.margin }}in;
                   width: {{ othermodel.leftMargin - model.cropmarks.margin * 2 }}in;
                   height: {{ model.cropmarks.thickness }}in;">&nbsp;</div>
       <div class="cropmark"
            ng-show="model.cropmarks.showOnBack"
-           ng-repeat="a in range(model.rows) track by $index"
-           style="top: {{ othermodel.topMargin + model.cardHeight - model.cropmarks.thickness + othermodel.fullcardHeight * $index }}in;
+           style="top: {{ othermodel.topMargin + othermodel.allCardsHeight - model.cropmarks.thickness - 2 * model.vMargin }}in;
                   left: {{ model.cropmarks.margin }}in;
                   width: {{ othermodel.leftMargin - model.cropmarks.margin * 2 }}in;
                   height: {{ model.cropmarks.thickness }}in;">&nbsp;</div>
       <!-- Right cropmarks -->
       <div class="cropmark"
            ng-show="model.cropmarks.showOnBack"
-           ng-repeat="a in range(model.rows) track by $index"
-           style="top: {{ othermodel.topMargin + othermodel.fullcardHeight * $index }}in;
+           style="top: {{ othermodel.topMargin - model.cropmarks.thickness }}in;
+                  right: {{ model.cropmarks.margin }}in;
+                  width: {{ othermodel.leftMargin - model.cropmarks.margin * 2 }}in;
+                  height: {{ model.cropmarks.thickness }}in;">&nbsp;</div>
+      <div class="cropmark"
+           ng-show="model.cropmarks.showOnBack && !$last"
+           ng-repeat="a in range(model.cols) track by $index"
+           style="top: {{ othermodel.topMargin + othermodel.fullcardHeight * ($index + 1) - model.vMargin - model.cropmarks.thickness / 2 }}in;
                   right: {{ model.cropmarks.margin }}in;
                   width: {{ othermodel.leftMargin - model.cropmarks.margin * 2 }}in;
                   height: {{ model.cropmarks.thickness }}in;">&nbsp;</div>
       <div class="cropmark"
            ng-show="model.cropmarks.showOnBack"
-           ng-repeat="a in range(model.rows) track by $index"
-           style="top: {{ othermodel.topMargin + model.cardHeight - model.cropmarks.thickness + othermodel.fullcardHeight * $index }}in;
+           style="top: {{ othermodel.topMargin + othermodel.allCardsHeight - model.cropmarks.thickness - 2 * model.vMargin }}in;
                   right: {{ model.cropmarks.margin }}in;
                   width: {{ othermodel.leftMargin - model.cropmarks.margin * 2 }}in;
                   height: {{ model.cropmarks.thickness }}in;">&nbsp;</div>
