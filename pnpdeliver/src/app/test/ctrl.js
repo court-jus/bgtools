@@ -95,6 +95,12 @@ angular.module('pnpdeliverApp')
         });
       }
     };
+    $scope.setAllCards = function(deck) {
+      _.each(deck.cards, function(card) {
+        card.count = null;
+        card.cardBack = null;
+      });
+    };
     $scope.loadJson = function() {
       if (!$scope.othermodel.distantJson) {
         return;
@@ -146,7 +152,7 @@ angular.module('pnpdeliverApp')
           if (!card.cardBack) {
             card.cardBack = deck.commonCardback;
           }
-          for(var i = 0; i < (card.count || 1); i++) {
+          for(var i = 0; i < (card.count || deck.commoncardCount); i++) {
             $scope.addCard(card);
           }
         });

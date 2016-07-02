@@ -83,6 +83,34 @@
                     </i>
                   </button>
                 </div>
+                <label>
+                  Deck name
+                  <input type="text"
+                         class="form-control"
+                         ng-model="deck.name"
+                         placeholder="Name" />
+                </label>
+                <label>
+                  All cards count
+                  <input type="number"
+                         class="form-control"
+                         ng-model="deck.commoncardCount"
+                         placeholder="Number of cards" />
+                </label>
+                <label>
+                  All cards back
+                  <input type="text"
+                         class="form-control"
+                         ng-model="deck.commonCardback"
+                         placeholder="Number of cards" />
+                </label>
+                <div class="row">
+                  <button class="btn btn-primary col-sm-10"
+                          title="Apply count and back to all cards"
+                          ng-click="setAllCards(deck)">
+                    Apply
+                  </button>
+                </div>
               </uib-accordion>
             </uib-accordion-group>
           </uib-accordion>
