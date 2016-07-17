@@ -20,6 +20,10 @@ angular.module('pnpdeliverApp')
       imageHeight: 3.5,
       imageHShift: 0,
       imageVShift: 0,
+      backgroundColor: {
+        front: 'transparent',
+        back: 'transparent'
+      },
       decks: [],
       pages: [],
       cropmarks: {
@@ -85,7 +89,7 @@ angular.module('pnpdeliverApp')
       if (urls.length > 0) {
         $scope.model.decks.push({
           name: 'New deck',
-          commonCardback: 'assets/images/white.png',
+          commonCardback: 'assets/images/transparent.png',
           cards: _.map(urls, function(url) {
             return {
               imageUrl: url,
@@ -144,8 +148,8 @@ angular.module('pnpdeliverApp')
       $scope.model.pages = [];
       var currentPage = [],
           defaultCard = {
-            imageUrl: 'assets/images/white.png',
-            cardBack: 'assets/images/white.png'
+            imageUrl: 'assets/images/transparent.png',
+            cardBack: 'assets/images/transparent.png'
           };
       _.each(n.decks, function(deck) {
         _.each(deck.cards, function(card) {
@@ -172,7 +176,7 @@ angular.module('pnpdeliverApp')
     return {
       hope: [{
         name: 'Technology cards',
-        commonCardback: 'assets/images/white.png',
+        commonCardback: 'assets/images/transparent.png',
         cards: [{
           imageUrl: 'https://lh3.googleusercontent.com/yqS9KsQmKnmsePr4wUPghmuJLYYshVUNz5oXTT5h-LifxC-plld8eXKupYt8L_uWcbD4GJQ26EisnmssJQ8JDJFW655KlnVs3dlcmapFLvQcLSC92ALl7ZvTY3lnsDhTEFNkg3eQXObrkEnuYkTXp8zxUcNSlLYgfUDnxtYcrZbWY52g4l_yNPHAxsyiTzHfDYkRf4FJjPDfCiTAFv9nU5eJBmZyW2uhM4Fiq5_I802Hi-9F4a7py2rlmfXHFx0fflUdQdCJegFa_uQ_VwcCNoaadC_Dz5fXbHDkTWNQhYEEAPGoy3TnYbZscLhaX9VYVsZ1tzG5-zPEoo-myis3hx0WUJ6XRWBcfdifM4GYCkFW7vamWI6gx7i9zvkhiy9VULr2NUHE5BhklB25hkfoL-zmrVHBOFQj8MXqJWMGgkS7aYIzoIG1hfS9DO-c9eJ1J_XdvnJXeHuXKNY5A4qpLx_SMgNLkVsF5l-LHknRmWDd_aYD9s96iHd6BCPv3Lbk9tmMOEbyuULlHakcqbZV721-joRxU0-YcT9OY5w_fQXT0w7299UGTgOhDh99L89pWG5agRKNtyMmguo5XFEXJtyVpGyyoLxc=w672-h940-no',
           cardBack: 'https://thumbs.dreamstime.com/x/playing-card-back-side-60x90-mm-17679108.jpg',

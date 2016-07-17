@@ -95,6 +95,7 @@ module.exports = {
       'fonts/glyphicons-halflings-regular.ttf',
       'fonts/glyphicons-halflings-regular.eot',
       'fonts/glyphicons-halflings-regular.svg',
+      'images/transparent.png',
       'images/white.png'
     ]
   },
