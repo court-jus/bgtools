@@ -1,5 +1,5 @@
 angular.module('pnpdeliverApp')
-  .controller('TestCtrl', function (
+  .controller('DeliverCtrl', function (
     $scope, $http, $routeParams,
     _, saveAs,
     Exemples

@@ -22,15 +22,15 @@ angular
         controller: 'MainCtrl',
         controllerAs: 'main'
       })
-      .when('/home', {
-        templateUrl: 'home/partials/home.tpl.html',
-        controller: 'HomeCtrl',
-        controllerAs: 'home'
+      .when('/advanced', {
+        templateUrl: 'deliver/partials/advanced.tpl.html',
+        controller: 'DeliverCtrl',
+        controllerAs: 'deliver'
       })
-      .when('/test', {
-        templateUrl: 'test/partials/test.tpl.html',
-        controller: 'TestCtrl',
-        controllerAs: 'test'
+      .when('/simple', {
+        templateUrl: 'deliver/partials/simple.tpl.html',
+        controller: 'DeliverCtrl',
+        controllerAs: 'deliver'
       })
       .otherwise({
         redirectTo: '/'
