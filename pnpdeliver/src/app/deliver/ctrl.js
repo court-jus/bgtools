@@ -10,6 +10,7 @@ angular.module('pnpdeliverApp')
     $scope.model = {
       version: '0.0.5',
       pageFormat: 'A4',
+      deckBreak: true,
       rows: 3,
       cols: 3,
       cardWidth: 2.5,
@@ -160,6 +161,9 @@ angular.module('pnpdeliverApp')
             $scope.addCard(card);
           }
         });
+        if ($scope.model.deckBreak) {
+          $scope.completePage(defaultCard);
+        }
       });
       $scope.completePage(defaultCard);
       var pageWidth = ($scope.model.pageFormat === 'A4' ? 8.26772 : 8.5),

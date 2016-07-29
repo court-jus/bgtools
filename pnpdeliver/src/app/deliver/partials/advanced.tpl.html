@@ -29,6 +29,10 @@
       <uib-accordion close-others="false">
         <uib-accordion-group heading="Decks">
           <uib-accordion close-others="false">
+            <label>
+              Page break between decks
+              <input type="checkbox" ng-model="model.deckBreak" />
+            </label>
             <uib-accordion-group heading="{{ deck.name || 'unnamed deck' }}"
                  ng-repeat="deck in model.decks">
               <uib-accordion close-others="false">
@@ -287,7 +291,7 @@
                   height: {{ model.cropmarks.thickness }}in;">&nbsp;</div>
       <div class="cropmark"
            ng-show="model.cropmarks.showOnFront && !$last"
-           ng-repeat="a in range(model.cols) track by $index"
+           ng-repeat="a in range(model.rows) track by $index"
            style="top: {{ othermodel.topMargin + othermodel.fullcardHeight * ($index + 1) - model.vMargin - model.cropmarks.thickness / 2 }}in;
                   left: {{ model.cropmarks.margin }}in;
                   width: {{ othermodel.leftMargin - model.cropmarks.margin * 2 }}in;
@@ -307,7 +311,7 @@
                   height: {{ model.cropmarks.thickness }}in;">&nbsp;</div>
       <div class="cropmark"
            ng-show="model.cropmarks.showOnFront && !$last"
-           ng-repeat="a in range(model.cols) track by $index"
+           ng-repeat="a in range(model.rows) track by $index"
            style="top: {{ othermodel.topMargin + othermodel.fullcardHeight * ($index + 1) - model.vMargin - model.cropmarks.thickness / 2 }}in;
                   right: {{ model.cropmarks.margin }}in;
                   width: {{ othermodel.leftMargin - model.cropmarks.margin * 2 }}in;
@@ -415,7 +419,7 @@
                   height: {{ model.cropmarks.thickness }}in;">&nbsp;</div>
       <div class="cropmark"
            ng-show="model.cropmarks.showOnBack && !$last"
-           ng-repeat="a in range(model.cols) track by $index"
+           ng-repeat="a in range(model.rows) track by $index"
            style="top: {{ othermodel.topMargin + othermodel.fullcardHeight * ($index + 1) - model.vMargin - model.cropmarks.thickness / 2 }}in;
                   left: {{ model.cropmarks.margin }}in;
                   width: {{ othermodel.leftMargin - model.cropmarks.margin * 2 }}in;
@@ -435,7 +439,7 @@
                   height: {{ model.cropmarks.thickness }}in;">&nbsp;</div>
       <div class="cropmark"
            ng-show="model.cropmarks.showOnBack && !$last"
-           ng-repeat="a in range(model.cols) track by $index"
+           ng-repeat="a in range(model.rows) track by $index"
            style="top: {{ othermodel.topMargin + othermodel.fullcardHeight * ($index + 1) - model.vMargin - model.cropmarks.thickness / 2 }}in;
                   right: {{ model.cropmarks.margin }}in;
                   width: {{ othermodel.leftMargin - model.cropmarks.margin * 2 }}in;
