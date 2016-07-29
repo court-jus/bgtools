@@ -43,7 +43,8 @@ angular.module('pnpdeliverApp')
       allCardsWidth: 0,
       allCardsHeight: 0,
       topMargin: 0,
-      leftMargin: 0
+      leftMargin: 0,
+      file: null
     };
     $scope.imagesUrls = '';
     $scope.addCard = function(card) {
@@ -98,7 +99,28 @@ angular.module('pnpdeliverApp')
             };
           })
         });
+      } else {
+        $scope.model.decks.push({
+          name: 'Empty deck',
+          commonCardback: 'assets/images/transparent.png',
+          cards: []
+        });
       }
+    };
+    $scope.importFile = function(deck) {
+      console.log("IMPORT", $scope.othermodel.file);
+      var reader = new FileReader();
+      reader.addEventListener("load", function(event) {
+        deck.cards.push({
+          name: $scope.othermodel.file.file,
+          imageUrl: event.target.result
+        });
+        console.log("reader load", event.target);
+      }, false);
+      if ($scope.othermodel.file) {
+        reader.readAsDataURL($scope.othermodel.file);
+      }
+      console.log(reader);
     };
     $scope.setAllCards = function(deck) {
       _.each(deck.cards, function(card) {
@@ -132,10 +154,8 @@ angular.module('pnpdeliverApp')
     if ($scope.othermodel.distantJson) {
       $scope.loadJson();
     }
-    $scope.$watch('model', function(n, o) {
-      if (angular.isUndefined(n)) {
-        return;
-      }
+    $scope.apply = function() {
+      var n = $scope.model;
       if (((n.backFormat === 'sidebyside' && o.backFormat !== 'sidebyside') ||
            (n.backFormat !== 'sidebyside' && o.backFormat === 'sidebyside')) &&
           (angular.isDefined(o.backFormat))) {
@@ -174,7 +194,8 @@ angular.module('pnpdeliverApp')
       $scope.othermodel.allCardsHeight = $scope.othermodel.fullcardHeight * $scope.model.rows;
       $scope.othermodel.leftMargin = (pageWidth - $scope.othermodel.allCardsWidth) / 2 + $scope.model.hMargin;
       $scope.othermodel.topMargin = (pageHeight - $scope.othermodel.allCardsHeight) / 2 + $scope.model.vMargin;
-    }, true);
+      $scope.othermodel.shouldapply = false;
+    };
   })
   .service('Exemples', function() {
     return {

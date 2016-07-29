@@ -11,6 +11,12 @@
               ng-click="saveJson()">
         Save
       </button>
+      <button class="btn btn-default"
+              title="Apply changes."
+              ng-class="{'btn-warning': othermodel.shouldapply}"
+              ng-click="apply()">
+        Apply
+      </button>
       <label>
         Image URLs
         <textarea class="form-control" ng-model="imagesUrls"></textarea>
@@ -76,11 +82,25 @@
                   </div>
                 </uib-accordion-group>
                 <div class="row">
-                  <button class="btn btn-success col-sm-5 col-sm-offset-1"
-                          ng-click="deck.cards.push({});">
-                    Add a card
+                  <label>
+                    Import image from user's computer
+                    <input type="file"
+                           class="form-control"
+                           name="file"
+                           my-file-read="othermodel.file"
+                           />
+                  </label>
+                </div>
+                <div class="row">
+                  <button class="btn btn-success col-sm-3"
+                          ng-click="importFile(deck)">
+                    Import
                   </button>
-                  <button class="btn btn-danger col-sm-5"
+                  <button class="btn btn-success col-sm-4 col-sm-offset-1"
+                          ng-click="deck.cards.push({});">
+                    Add an empty card
+                  </button>
+                  <button class="btn btn-danger col-sm-3 col-sm-offset-1"
                        title="Remove this deck"
                        ng-click="model.decks.splice($index, 1);">
                     <i class="fa fa-fw fa-trash">
