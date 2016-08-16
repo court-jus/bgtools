@@ -45,6 +45,7 @@ angular.module('pnpdeliverApp')
         $routeParams.load :
         ''
       ),
+      showDescription: true,
       allCardsWidth: 0,
       allCardsHeight: 0,
       topMargin: 0,

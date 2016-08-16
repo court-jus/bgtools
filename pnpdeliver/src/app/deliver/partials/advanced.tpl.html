@@ -1,6 +1,16 @@
 <div class="flex">
   <div class="noprint">
     <form class="form">
+      <div>
+        <h2>
+          <a ng-click="othermodel.showDescription = !othermodel.showDescription"
+             title="Clic to show/hide game description">
+            <i class="fa fa-info-circle" />
+            {{ model.metaData.gamename }}
+            <small>{{ model.metaData.author }}</small>
+          </a>
+        </h2>
+      </div>
       <uib-accordion close-others="false">
         <uib-accordion-group heading="Game">
           <uib-accordion close-others="false">

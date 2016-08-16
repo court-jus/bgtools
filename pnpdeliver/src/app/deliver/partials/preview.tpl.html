@@ -1,6 +1,15 @@
 <div class="pages"
      ng-class="{'page-letter': model.pageFormat === 'Letter',
                 'page-a4': model.pageFormat === 'A4'}">
+  <div class="description noprint"
+       ng-show="othermodel.showDescription">
+    <h2>
+      {{ model.metaData.gamename }}
+      <small>a game by {{ model.metaData.author }}</small>
+    </h2>
+    <hr />
+    <div ng-bind-html="model.metaData.description"></div>
+  </div>
   <div class="page"
        ng-repeat-start="page in model.pages"
        ng-class="{'page-letter': model.pageFormat === 'Letter',
