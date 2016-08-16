@@ -76,6 +76,17 @@ div {
 .flex {
   display: flex;
 }
+.pages {
+  background-color: #eef;
+  &.page-a4 {
+    min-width: 210mm;
+    min-height: 297mm;
+  }
+  &.page-letter {
+    min-width: 8.5in;
+    min-height: 11in;
+  }
+}
 .page {
   display: flex;
   page-break-after: always;

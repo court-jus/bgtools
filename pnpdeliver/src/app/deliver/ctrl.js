@@ -9,6 +9,11 @@ angular.module('pnpdeliverApp')
     };
     $scope.model = {
       version: '0.0.5',
+      metaData: {
+        gamename: null,
+        author: null,
+        description: null
+      },
       pageFormat: 'A4',
       deckBreak: true,
       rows: 3,
@@ -93,8 +98,7 @@ angular.module('pnpdeliverApp')
           commonCardback: 'assets/images/transparent.png',
           cards: _.map(urls, function(url) {
             return {
-              imageUrl: url,
-              count: 1
+              imageUrl: url
             };
           })
         });
@@ -102,8 +106,8 @@ angular.module('pnpdeliverApp')
     };
     $scope.setAllCards = function(deck) {
       _.each(deck.cards, function(card) {
-        card.count = null;
-        card.cardBack = null;
+        delete card.count;
+        delete card.cardBack;
       });
     };
     $scope.loadJson = function() {
@@ -120,8 +124,10 @@ angular.module('pnpdeliverApp')
       });
     };
     $scope.saveJson = function() {
+      var savable = angular.copy($scope.model);
+      delete savable.pages;
       saveAs(
-        new Blob([angular.toJson($scope.model)],
+        new Blob([angular.toJson(savable, 2)],
                  {type: 'application/json;charset=utf-8'}),
         'mydeck.json'
       );
@@ -154,10 +160,7 @@ angular.module('pnpdeliverApp')
           };
       _.each(n.decks, function(deck) {
         _.each(deck.cards, function(card) {
-          if (!card.cardBack) {
-            card.cardBack = deck.commonCardback;
-          }
-          for(var i = 0; i < (card.count || deck.commoncardCount); i++) {
+          for(var i = 0; i < (card.count || deck.commoncardCount || 1); i++) {
             $scope.addCard(card);
           }
         });
