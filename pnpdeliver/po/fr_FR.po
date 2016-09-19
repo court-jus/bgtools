@@ -1,16 +1,117 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: \n"
+"PO-Revision-Date: 2016-09-19 08:00+0000\n"
 "Last-Translator: \n"
-"Language-Team: \n"
-"Language: fr_FR\n"
+"Language-Team: French (France)\n"
+"Language: fr-FR\n"
+"Plural-Forms: nplurals=2; plural=(n > 1)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.9\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Loco-Source-Locale: fr_FR\n"
+"X-Generator: Loco - https://localise.biz/\n"
+"X-Loco-Parser: loco_parse_po"
+
+#: src/app/main/partials/main.tpl.html:52
+msgid ""
+"Crop marks can be added on the front side of the cards (back side not "
+"functionnal yet)."
+msgstr ""
+"Les marques de découpe peuvent être ajoutées sur le recto (verso non "
+"implémenté pour l'instant)."
+
+#: src/app/main/partials/main.tpl.html:46
+msgid "Crop marks now work on the back side."
+msgstr "Les marques de découpe peuvent être ajoutées sur le verso."
+
+#: src/app/main/partials/main.tpl.html:37
+msgid ""
+"Game information is shown on the preview and can be hidden by clicking the "
+"game name above the forms"
+msgstr ""
+"Les informations concernant le jeu sont affichées dans l'aperçu et peuvent "
+"être masquées en cliquant sur le nom du jeu au dessus des formulaires."
+
+#: src/app/main/partials/main.tpl.html:83
+msgid ""
+"It is now possible to choose the number of cards per page (rows, cols),\n"
+"          cards size and the cards margin."
+msgstr ""
+"Il est maintenant possible de choisir le nombre de cartes par page (lignes, "
+"colonnes) ainsi que la taille des cartes et les marges."
+
+#: src/app/main/partials/main.tpl.html:76
+msgid ""
+"It is now possible to use images with bleeding by specifying\n"
+"          image width/height and image shift. For example if you are making\n"
+"          standard 2.5/3.5 cards and have a 1/10in bleed, you will choose\n"
+"          card width=2.5, card height=3.5, image width=2.7, image height=3.7,"
+"\n"
+"          image horizontal shift = -0.1 and image vertical shift = -0.1."
+msgstr ""
+"Il est maintenant possible d'ajouter des images incluant une marge "
+"(\"bleeding\") en spécifiant la taille de l'image et son décalage. Par "
+"exemple pour des cartes de 2.5\" par 3.5\" avec une marge d'1/10\" vous "
+"devez choisir une largeur d'image de 2.7\", une hauteur d'image de 3.7\" et "
+"un décalage horizontal de -0.1\" et vertical de -0.1\" également."
+
+#: src/app/main/partials/main.tpl.html:72
+msgid "Multiple copies of the same card can be created."
+msgstr "Plusieurs copies d'une carte peuvent maintenant être crées."
+
+#: src/app/main/partials/main.tpl.html:73
+msgid "Multiple decks can be generated and managed."
+msgstr "Plusieurs paquets peuvent être générés et gérés."
+
+#: src/app/main/partials/main.tpl.html:71
+msgid "Options are organized in categories."
+msgstr "Les options sont organisées en catégories."
+
+#: src/app/main/partials/main.tpl.html:36
+msgid ""
+"Save and Load have been moved to a new \"Game\" section that allows to edit "
+"game name, author and description"
+msgstr ""
+"Les boutons d'enregistrement et de chargement ont été déplacé dans une "
+"nouvelle section \"Le jeu\" qui permet également de modifier le nom du jeu, "
+"son auteur et sa description."
+
+#: src/app/main/partials/main.tpl.html:59
+msgid ""
+"The saved JSON file can be shared on a public repository (dropbox)\n"
+"          and can be passed through the URL like this :\n"
+"          <a href=\"http://court-jus.github.io/PnPDeliver/#/advanced?"
+"load=MYPUBLICURL\">\n"
+"            http://court-jus.github.io/PnPDeliver/#/advanced?"
+"load=MYPUBLICURL\n"
+"          </a>"
+msgstr ""
+"Le fichier JSON sauvegardé peut être partagé via un dépôt public (dropbox) "
+"et ouvert automatiquement en le passant dans l'URL ainsi : <a href=\"http:"
+"//court-jus.github.io/PnPDeliver/#/advanced?load=MYPUBLICURL\">\n"
+"            http://court-jus.github.io/PnPDeliver/#/advanced?"
+"load=MYPUBLICURL\n"
+"          </a>"
+
+#: src/app/main/partials/main.tpl.html:34
+msgid "There's a light gray background to show where the page is"
+msgstr ""
+"Un léger gris est ajouté en fond pour visualiser les dimensions de la page."
+
+#: src/app/main/partials/main.tpl.html:42
+msgid "Two UI are now available (simple/advanced)"
+msgstr "Deux interfaces sont disponibles (simple/avancé)."
+
+#: src/app/main/partials/main.tpl.html:67
+msgid ""
+"When display boundaries, the images are not hidden, but their\n"
+"          opacity is reduced."
+msgstr ""
+"Lorsque l'on affiche les bordures, les images ne sont pas masqués mais leur "
+"opacité est réduite."
 
 #: src/app/main/partials/main.tpl.html:40
 msgid "A background color can be added in the margins"
@@ -74,22 +175,6 @@ msgstr "Nettoyage du code"
 msgid "Crop marks are centered on the inner margins."
 msgstr "Les marques de découpe sont centrées dans les marges."
 
-#: src/app/main/partials/main.tpl.html:52
-msgid ""
-"Crop marks can be added on the front side of the cards (back side not "
-"functionnal yet)."
-msgstr ""
-
-#: src/app/main/partials/main.tpl.html:46
-msgid "Crop marks now work on the back side."
-msgstr ""
-
-#: src/app/main/partials/main.tpl.html:37
-msgid ""
-"Game information is shown on the preview and can be hidden by clicking the "
-"game name above the forms"
-msgstr ""
-
 #: src/app/main/partials/main.tpl.html:9
 msgid "Go !"
 msgstr "C'est parti !"
@@ -97,22 +182,6 @@ msgstr "C'est parti !"
 #: src/app/main/partials/main.tpl.html:2
 msgid "Hi&nbsp;!"
 msgstr "Salut&nbsp;!"
-
-#: src/app/main/partials/main.tpl.html:83
-msgid ""
-"It is now possible to choose the number of cards per page (rows, cols),\n"
-"          cards size and the cards margin."
-msgstr ""
-
-#: src/app/main/partials/main.tpl.html:76
-msgid ""
-"It is now possible to use images with bleeding by specifying\n"
-"          image width/height and image shift. For example if you are making\n"
-"          standard 2.5/3.5 cards and have a 1/10in bleed, you will choose\n"
-"          card width=2.5, card height=3.5, image width=2.7, image "
-"height=3.7,\n"
-"          image horizontal shift = -0.1 and image vertical shift = -0.1."
-msgstr ""
 
 #: src/app/main/partials/main.tpl.html:31
 msgid "Last changes"
@@ -122,57 +191,14 @@ msgstr "Derniers changements"
 msgid "Load"
 msgstr "Ouvrir"
 
-#: src/app/main/partials/main.tpl.html:72
-msgid "Multiple copies of the same card can be created."
-msgstr ""
-
-#: src/app/main/partials/main.tpl.html:73
-msgid "Multiple decks can be generated and managed."
-msgstr ""
-
 #: src/app/deliver/partials/advanced.tpl.html:30
 msgid "Name"
 msgstr "Nom"
-
-#: src/app/main/partials/main.tpl.html:71
-msgid "Options are organized in categories."
-msgstr ""
 
 #: src/app/deliver/partials/advanced.tpl.html:23
 msgid "Save"
 msgstr "Enregistrer"
 
-#: src/app/main/partials/main.tpl.html:36
-msgid ""
-"Save and Load have been moved to a new \"Game\" section that allows to edit "
-"game name, author and description"
-msgstr ""
-
-#: src/app/main/partials/main.tpl.html:59
-msgid ""
-"The saved JSON file can be shared on a public repository (dropbox)\n"
-"          and can be passed through the URL like this :\n"
-"          <a href=\"http://court-jus.github.io/PnPDeliver/#/advanced?"
-"load=MYPUBLICURL\">\n"
-"            http://court-jus.github.io/PnPDeliver/#/advanced?"
-"load=MYPUBLICURL\n"
-"          </a>"
-msgstr ""
-
-#: src/app/main/partials/main.tpl.html:34
-msgid "There's a light gray background to show where the page is"
-msgstr ""
-
-#: src/app/main/partials/main.tpl.html:42
-msgid "Two UI are now available (simple/advanced)"
-msgstr ""
-
 #: src/app/main/partials/main.tpl.html:3
 msgid "Welcome in this tool."
 msgstr "Bienvenue sur cet outil."
-
-#: src/app/main/partials/main.tpl.html:67
-msgid ""
-"When display boundaries, the images are not hidden, but their\n"
-"          opacity is reduced."
-msgstr ""
