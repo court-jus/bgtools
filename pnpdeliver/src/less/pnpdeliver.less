@@ -76,6 +76,12 @@ div {
 .flex {
   display: flex;
 }
+.flex-grow {
+  flex-grow: 1;
+}
+.no-flex-shrink {
+  flex-shrink: 0;
+}
 .pages {
   background-color: #eef;
   &.page-a4 {
@@ -183,9 +189,19 @@ form.form label {
   }
 }
 
+@media screen {
+  .print-only {
+    display: none;
+  }
+}
+
 .description {
   border: 1px solid black;
   margin: 5mm;
   padding: 5mm;
   background-color: white;
+}
+hr.little-hr {
+  margin-top: 2px;
+  margin-bottom: 2px;
 }
