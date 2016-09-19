@@ -13,14 +13,13 @@ angular
     'ngRoute',
     'ngSanitize',
     'templates-app',
+    'gettext',
     'ui.bootstrap'
   ])
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
         templateUrl: 'main/partials/main.tpl.html',
-        controller: 'MainCtrl',
-        controllerAs: 'main'
       })
       .when('/advanced', {
         templateUrl: 'deliver/partials/advanced.tpl.html',
@@ -41,4 +40,10 @@ angular
       .otherwise({
         redirectTo: '/'
       });
-  });
+  })
+  .run(function(gettextCatalog) {
+    gettextCatalog.setCurrentLanguage('fr_FR');
+    gettextCatalog.debug = true;
+  })
+
+;

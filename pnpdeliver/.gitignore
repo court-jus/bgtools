@@ -7,3 +7,5 @@
 /build
 .*.sw*
 /MyData
+src/app/translations.js
+po/*.mo

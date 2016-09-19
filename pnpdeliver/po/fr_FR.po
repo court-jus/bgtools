@@ -1,0 +1,178 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: fr_FR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.9\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: src/app/main/partials/main.tpl.html:40
+msgid "A background color can be added in the margins"
+msgstr "Une couleur de fond peut être ajoutée dans les marges."
+
+#: src/app/main/partials/main.tpl.html:41
+msgid "A page break can be added between the decks"
+msgstr "Un saut de page peut être ajouté entre les paquets."
+
+#: src/app/main/partials/main.tpl.html:17
+msgid ""
+"A tool to help game designers distribute their PnP games and to\n"
+"    help PnP players to print them."
+msgstr ""
+"Un outil pour aider les auteurs de jeux à distribuer leurs jeux en \"Print "
+"and Play\"\n"
+"et aider les joueurs à les imprimer."
+
+#: src/app/main/partials/main.tpl.html:35
+msgid ""
+"Automatic creation of a deck from a list of image URLs has been moved to the "
+"Deck section"
+msgstr ""
+"La création automatique d'un paquet à partir d'une liste d'adresses d'images "
+"a été déplacée dans la section \"Paquets\""
+
+#: src/app/main/partials/main.tpl.html:48
+msgid "Can apply a global card count or card back to a deck."
+msgstr ""
+"Possibilité d'appliquer un dos et un nombre de cartes commun à un paquet."
+
+#: src/app/main/partials/main.tpl.html:58
+msgid "Can now save and load."
+msgstr "Possibilité de sauvegarder/enregistrer."
+
+#: src/app/main/partials/main.tpl.html:47
+msgid "Can rename a deck."
+msgstr "Possibilité de renommer un paquet."
+
+#: src/app/main/partials/main.tpl.html:55
+msgid ""
+"Card back can be displayed, side by side with the front side or on a "
+"separate page for duplex printing."
+msgstr ""
+"Les dos de cartes peuvent être affichés, côte à côte sur le recto ou sur une "
+"autre page pour impression recto/verso."
+
+#: src/app/main/partials/main.tpl.html:69
+msgid ""
+"Cards overflow is hidden so the cropping effect of having images\n"
+"          bigger than cards is better."
+msgstr ""
+"La zone de dépassement est masquée, le découpage des images plus grandes\n"
+"que les cartes est amélioré."
+
+#: src/app/main/partials/main.tpl.html:43
+msgid "Code cleaned"
+msgstr "Nettoyage du code"
+
+#: src/app/main/partials/main.tpl.html:49
+msgid "Crop marks are centered on the inner margins."
+msgstr "Les marques de découpe sont centrées dans les marges."
+
+#: src/app/main/partials/main.tpl.html:52
+msgid ""
+"Crop marks can be added on the front side of the cards (back side not "
+"functionnal yet)."
+msgstr ""
+
+#: src/app/main/partials/main.tpl.html:46
+msgid "Crop marks now work on the back side."
+msgstr ""
+
+#: src/app/main/partials/main.tpl.html:37
+msgid ""
+"Game information is shown on the preview and can be hidden by clicking the "
+"game name above the forms"
+msgstr ""
+
+#: src/app/main/partials/main.tpl.html:9
+msgid "Go !"
+msgstr "C'est parti !"
+
+#: src/app/main/partials/main.tpl.html:2
+msgid "Hi&nbsp;!"
+msgstr "Salut&nbsp;!"
+
+#: src/app/main/partials/main.tpl.html:83
+msgid ""
+"It is now possible to choose the number of cards per page (rows, cols),\n"
+"          cards size and the cards margin."
+msgstr ""
+
+#: src/app/main/partials/main.tpl.html:76
+msgid ""
+"It is now possible to use images with bleeding by specifying\n"
+"          image width/height and image shift. For example if you are making\n"
+"          standard 2.5/3.5 cards and have a 1/10in bleed, you will choose\n"
+"          card width=2.5, card height=3.5, image width=2.7, image "
+"height=3.7,\n"
+"          image horizontal shift = -0.1 and image vertical shift = -0.1."
+msgstr ""
+
+#: src/app/main/partials/main.tpl.html:31
+msgid "Last changes"
+msgstr "Derniers changements"
+
+#: src/app/deliver/partials/advanced.tpl.html:17
+msgid "Load"
+msgstr "Ouvrir"
+
+#: src/app/main/partials/main.tpl.html:72
+msgid "Multiple copies of the same card can be created."
+msgstr ""
+
+#: src/app/main/partials/main.tpl.html:73
+msgid "Multiple decks can be generated and managed."
+msgstr ""
+
+#: src/app/deliver/partials/advanced.tpl.html:30
+msgid "Name"
+msgstr "Nom"
+
+#: src/app/main/partials/main.tpl.html:71
+msgid "Options are organized in categories."
+msgstr ""
+
+#: src/app/deliver/partials/advanced.tpl.html:23
+msgid "Save"
+msgstr "Enregistrer"
+
+#: src/app/main/partials/main.tpl.html:36
+msgid ""
+"Save and Load have been moved to a new \"Game\" section that allows to edit "
+"game name, author and description"
+msgstr ""
+
+#: src/app/main/partials/main.tpl.html:59
+msgid ""
+"The saved JSON file can be shared on a public repository (dropbox)\n"
+"          and can be passed through the URL like this :\n"
+"          <a href=\"http://court-jus.github.io/PnPDeliver/#/advanced?"
+"load=MYPUBLICURL\">\n"
+"            http://court-jus.github.io/PnPDeliver/#/advanced?"
+"load=MYPUBLICURL\n"
+"          </a>"
+msgstr ""
+
+#: src/app/main/partials/main.tpl.html:34
+msgid "There's a light gray background to show where the page is"
+msgstr ""
+
+#: src/app/main/partials/main.tpl.html:42
+msgid "Two UI are now available (simple/advanced)"
+msgstr ""
+
+#: src/app/main/partials/main.tpl.html:3
+msgid "Welcome in this tool."
+msgstr "Bienvenue sur cet outil."
+
+#: src/app/main/partials/main.tpl.html:67
+msgid ""
+"When display boundaries, the images are not hidden, but their\n"
+"          opacity is reduced."
+msgstr ""

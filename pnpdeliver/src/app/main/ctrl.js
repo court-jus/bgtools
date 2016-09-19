@@ -6,10 +6,6 @@
  * Controller of the pnpdeliverApp
  */
 angular.module('pnpdeliverApp')
-  .controller('MainCtrl', function () {
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+  .controller('MainCtrl', function ($scope) {
+    $scope.locale = 'en';
   });

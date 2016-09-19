@@ -13,40 +13,45 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
-    <div class="header noprint">
-      <div class="navbar navbar-default" role="navigation">
-        <div class="container">
-          <div class="navbar-header">
+    <div ng-controller="MainCtrl">
+      <div class="header noprint">
+        <div class="navbar navbar-default" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
 
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#js-navbar-collapse">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#js-navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
 
-            <a class="navbar-brand" href="#/">PnPDeliver <%= version %></a>
-          </div>
+              <a class="navbar-brand" href="#/">PnPDeliver <%= version %></a>
+            </div>
+            <div class="pull-right">
+              <span>{{ locale }}</span>
+            </div>
 
-          <div class="collapse navbar-collapse" id="js-navbar-collapse">
+            <div class="collapse navbar-collapse" id="js-navbar-collapse">
 
-            <ul class="nav navbar-nav">
-              <li class="active"><a href="#/">Home</a></li>
-              <li><a ng-href="#/simple">Simple</a></li>
-              <li><a ng-href="#/advanced">Advanced</a></li>
-            </ul>
+              <ul class="nav navbar-nav">
+                <li class="active"><a href="#/">Home</a></li>
+                <li><a ng-href="#/simple">Simple</a></li>
+                <li><a ng-href="#/advanced">Advanced</a></li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
-    </div>
 
-    <div class="container" ng-cloak>
-    <div ng-view="" class="flex"></div>
-    </div>
+      <div class="container" ng-cloak>
+      <div ng-view="" class="flex"></div>
+      </div>
 
-    <div class="footer noprint">
-      <div class="container">
-        <p><span class="glyphicon glyphicon-heart"></span> from Ghislain "court-jus" Lévêque</p>
+      <div class="footer noprint">
+        <div class="container">
+          <p><span class="glyphicon glyphicon-heart"></span> from Ghislain "court-jus" Lévêque</p>
+        </div>
       </div>
     </div>
 

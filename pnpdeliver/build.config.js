@@ -72,6 +72,7 @@ module.exports = {
       'bower_components/angular-route/angular-route.js',
       'bower_components/angular-sanitize/angular-sanitize.js',
       'bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js',
+      'bower_components/angular-gettext/dist/angular-gettext.min.js',
       'bower_components/lodash/lodash.js'
     ],
     css: [

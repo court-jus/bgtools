@@ -16,6 +16,7 @@ module.exports = function ( grunt ) {
   grunt.loadNpmTasks('grunt-ngmin');
   grunt.loadNpmTasks('grunt-html2js');
   grunt.loadNpmTasks('grunt-shell');
+  grunt.loadNpmTasks('grunt-angular-gettext');
 
   /**
    * Load in our build configuration file.
@@ -464,7 +465,7 @@ module.exports = function ( grunt ) {
           '<%= app_files.atpl %>',
           '<%= app_files.ctpl %>'
         ],
-        tasks: [ 'html2js' ]
+        tasks: [ 'html2js', 'nggettext_extract' ]
       },
 
       /**
@@ -473,6 +474,14 @@ module.exports = function ( grunt ) {
       less: {
         files: [ 'src/**/*.less' ],
         tasks: [ 'less:build' ]
+      },
+
+      /**
+       * When the PO files change, we need to compile them.
+       */
+      po: {
+        files: [ 'po/*.po' ],
+        tasks: [ 'nggettext_compile' ]
       },
 
       /**
@@ -489,6 +498,20 @@ module.exports = function ( grunt ) {
         }
       }
 
+    },
+    nggettext_extract: {
+      pot: {
+        files: {
+          'po/template.pot': ['src/app/**/*.tpl.html']
+        }
+      }
+    },
+    nggettext_compile: {
+      all: {
+        files: {
+          'src/app/translations.js': ['po/*.po']
+        }
+      }
     }
   };
 
@@ -515,7 +538,8 @@ module.exports = function ( grunt ) {
   grunt.registerTask( 'build', [
     'clean', 'html2js', 'jshint', 'less:build',
     'concat:build_css', 'copy:build_app_assets', 'copy:build_vendor_assets',
-    'copy:build_appjs', 'copy:build_vendorjs', 'index:build'
+    'copy:build_appjs', 'copy:build_vendorjs', 'index:build',
+    'nggettext_extract', 'nggettext_compile'
   ]);
 
   /**
@@ -523,7 +547,8 @@ module.exports = function ( grunt ) {
    * minifying your code.
    */
   grunt.registerTask( 'compile', [
-    'less:compile', 'copy:build_assets', 'ngmin', 'concat:compile_js', 'uglify', 'index:compile'
+    'less:compile', 'copy:build_assets', 'ngmin', 'concat:compile_js',
+    'uglify', 'index:compile'
   ]);
 
   /**
