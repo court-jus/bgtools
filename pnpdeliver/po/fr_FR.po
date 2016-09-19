@@ -1,62 +1,36 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: \n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: \n"
-"PO-Revision-Date: 2016-09-19 08:00+0000\n"
-"Last-Translator: \n"
-"Language-Team: French (France)\n"
-"Language: fr-FR\n"
-"Plural-Forms: nplurals=2; plural=(n > 1)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Loco-Source-Locale: fr_FR\n"
-"X-Generator: Loco - https://localise.biz/\n"
-"X-Loco-Parser: loco_parse_po"
+"X-Generator: POEditor.com\n"
+"Project-Id-Version: PnPDeliver\n"
+"Language: fr\n"
 
 #: src/app/main/partials/main.tpl.html:52
-msgid ""
-"Crop marks can be added on the front side of the cards (back side not "
-"functionnal yet)."
-msgstr ""
-"Les marques de découpe peuvent être ajoutées sur le recto (verso non "
-"implémenté pour l'instant)."
+msgid "Crop marks can be added on the front side of the cards (back side not functionnal yet)."
+msgstr "Les marques de découpe peuvent être ajoutées sur le recto (verso non implémenté pour l'instant)."
 
 #: src/app/main/partials/main.tpl.html:46
 msgid "Crop marks now work on the back side."
 msgstr "Les marques de découpe peuvent être ajoutées sur le verso."
 
 #: src/app/main/partials/main.tpl.html:37
-msgid ""
-"Game information is shown on the preview and can be hidden by clicking the "
-"game name above the forms"
-msgstr ""
-"Les informations concernant le jeu sont affichées dans l'aperçu et peuvent "
-"être masquées en cliquant sur le nom du jeu au dessus des formulaires."
+msgid "Game information is shown on the preview and can be hidden by clicking the game name above the forms"
+msgstr "Les informations concernant le jeu sont affichées dans l'aperçu et peuvent être masquées en cliquant sur le nom du jeu au dessus des formulaires."
 
 #: src/app/main/partials/main.tpl.html:83
-msgid ""
-"It is now possible to choose the number of cards per page (rows, cols),\n"
+msgid "It is now possible to choose the number of cards per page (rows, cols),\n"
 "          cards size and the cards margin."
-msgstr ""
-"Il est maintenant possible de choisir le nombre de cartes par page (lignes, "
-"colonnes) ainsi que la taille des cartes et les marges."
+msgstr "Il est maintenant possible de choisir le nombre de cartes par page (lignes, colonnes) ainsi que la taille des cartes et les marges."
 
 #: src/app/main/partials/main.tpl.html:76
-msgid ""
-"It is now possible to use images with bleeding by specifying\n"
+msgid "It is now possible to use images with bleeding by specifying\n"
 "          image width/height and image shift. For example if you are making\n"
 "          standard 2.5/3.5 cards and have a 1/10in bleed, you will choose\n"
-"          card width=2.5, card height=3.5, image width=2.7, image height=3.7,"
-"\n"
+"          card width=2.5, card height=3.5, image width=2.7, image height=3.7,\n"
 "          image horizontal shift = -0.1 and image vertical shift = -0.1."
-msgstr ""
-"Il est maintenant possible d'ajouter des images incluant une marge "
-"(\"bleeding\") en spécifiant la taille de l'image et son décalage. Par "
-"exemple pour des cartes de 2.5\" par 3.5\" avec une marge d'1/10\" vous "
-"devez choisir une largeur d'image de 2.7\", une hauteur d'image de 3.7\" et "
-"un décalage horizontal de -0.1\" et vertical de -0.1\" également."
+msgstr "Il est maintenant possible d'ajouter des images incluant une marge (\"bleeding\") en spécifiant la taille de l'image et son décalage. Par exemple pour des cartes de 2.5\" par 3.5\" avec une marge d'1/10\" vous devez choisir une largeur d'image de 2.7\", une hauteur d'image de 3.7\" et un décalage horizontal de -0.1\" et vertical de -0.1\" également."
 
 #: src/app/main/partials/main.tpl.html:72
 msgid "Multiple copies of the same card can be created."
@@ -71,47 +45,31 @@ msgid "Options are organized in categories."
 msgstr "Les options sont organisées en catégories."
 
 #: src/app/main/partials/main.tpl.html:36
-msgid ""
-"Save and Load have been moved to a new \"Game\" section that allows to edit "
-"game name, author and description"
-msgstr ""
-"Les boutons d'enregistrement et de chargement ont été déplacé dans une "
-"nouvelle section \"Le jeu\" qui permet également de modifier le nom du jeu, "
-"son auteur et sa description."
+msgid "Save and Load have been moved to a new \"Game\" section that allows to edit game name, author and description"
+msgstr "Les boutons d'enregistrement et de chargement ont été déplacé dans une nouvelle section \"Le jeu\" qui permet également de modifier le nom du jeu, son auteur et sa description."
 
 #: src/app/main/partials/main.tpl.html:59
-msgid ""
-"The saved JSON file can be shared on a public repository (dropbox)\n"
+msgid "The saved JSON file can be shared on a public repository (dropbox)\n"
 "          and can be passed through the URL like this :\n"
-"          <a href=\"http://court-jus.github.io/PnPDeliver/#/advanced?"
-"load=MYPUBLICURL\">\n"
-"            http://court-jus.github.io/PnPDeliver/#/advanced?"
-"load=MYPUBLICURL\n"
+"          <a href=\"http://court-jus.github.io/PnPDeliver/#/advanced?load=MYPUBLICURL\">\n"
+"            http://court-jus.github.io/PnPDeliver/#/advanced?load=MYPUBLICURL\n"
 "          </a>"
-msgstr ""
-"Le fichier JSON sauvegardé peut être partagé via un dépôt public (dropbox) "
-"et ouvert automatiquement en le passant dans l'URL ainsi : <a href=\"http:"
-"//court-jus.github.io/PnPDeliver/#/advanced?load=MYPUBLICURL\">\n"
-"            http://court-jus.github.io/PnPDeliver/#/advanced?"
-"load=MYPUBLICURL\n"
+msgstr "Le fichier JSON sauvegardé peut être partagé via un dépôt public (dropbox) et ouvert automatiquement en le passant dans l'URL ainsi : <a href=\"http://court-jus.github.io/PnPDeliver/#/advanced?load=MYPUBLICURL\">\n"
+"            http://court-jus.github.io/PnPDeliver/#/advanced?load=MYPUBLICURL\n"
 "          </a>"
 
 #: src/app/main/partials/main.tpl.html:34
 msgid "There's a light gray background to show where the page is"
-msgstr ""
-"Un léger gris est ajouté en fond pour visualiser les dimensions de la page."
+msgstr "Un léger gris est ajouté en fond pour visualiser les dimensions de la page."
 
 #: src/app/main/partials/main.tpl.html:42
 msgid "Two UI are now available (simple/advanced)"
 msgstr "Deux interfaces sont disponibles (simple/avancé)."
 
 #: src/app/main/partials/main.tpl.html:67
-msgid ""
-"When display boundaries, the images are not hidden, but their\n"
+msgid "When display boundaries, the images are not hidden, but their\n"
 "          opacity is reduced."
-msgstr ""
-"Lorsque l'on affiche les bordures, les images ne sont pas masqués mais leur "
-"opacité est réduite."
+msgstr "Lorsque l'on affiche les bordures, les images ne sont pas masqués mais leur opacité est réduite."
 
 #: src/app/main/partials/main.tpl.html:40
 msgid "A background color can be added in the margins"
@@ -122,26 +80,18 @@ msgid "A page break can be added between the decks"
 msgstr "Un saut de page peut être ajouté entre les paquets."
 
 #: src/app/main/partials/main.tpl.html:17
-msgid ""
-"A tool to help game designers distribute their PnP games and to\n"
+msgid "A tool to help game designers distribute their PnP games and to\n"
 "    help PnP players to print them."
-msgstr ""
-"Un outil pour aider les auteurs de jeux à distribuer leurs jeux en \"Print "
-"and Play\"\n"
+msgstr "Un outil pour aider les auteurs de jeux à distribuer leurs jeux en \"Print and Play\"\n"
 "et aider les joueurs à les imprimer."
 
 #: src/app/main/partials/main.tpl.html:35
-msgid ""
-"Automatic creation of a deck from a list of image URLs has been moved to the "
-"Deck section"
-msgstr ""
-"La création automatique d'un paquet à partir d'une liste d'adresses d'images "
-"a été déplacée dans la section \"Paquets\""
+msgid "Automatic creation of a deck from a list of image URLs has been moved to the Deck section"
+msgstr "La création automatique d'un paquet à partir d'une liste d'adresses d'images a été déplacée dans la section \"Paquets\""
 
 #: src/app/main/partials/main.tpl.html:48
 msgid "Can apply a global card count or card back to a deck."
-msgstr ""
-"Possibilité d'appliquer un dos et un nombre de cartes commun à un paquet."
+msgstr "Possibilité d'appliquer un dos et un nombre de cartes commun à un paquet."
 
 #: src/app/main/partials/main.tpl.html:58
 msgid "Can now save and load."
@@ -152,19 +102,13 @@ msgid "Can rename a deck."
 msgstr "Possibilité de renommer un paquet."
 
 #: src/app/main/partials/main.tpl.html:55
-msgid ""
-"Card back can be displayed, side by side with the front side or on a "
-"separate page for duplex printing."
-msgstr ""
-"Les dos de cartes peuvent être affichés, côte à côte sur le recto ou sur une "
-"autre page pour impression recto/verso."
+msgid "Card back can be displayed, side by side with the front side or on a separate page for duplex printing."
+msgstr "Les dos de cartes peuvent être affichés, côte à côte sur le recto ou sur une autre page pour impression recto/verso."
 
 #: src/app/main/partials/main.tpl.html:69
-msgid ""
-"Cards overflow is hidden so the cropping effect of having images\n"
+msgid "Cards overflow is hidden so the cropping effect of having images\n"
 "          bigger than cards is better."
-msgstr ""
-"La zone de dépassement est masquée, le découpage des images plus grandes\n"
+msgstr "La zone de dépassement est masquée, le découpage des images plus grandes\n"
 "que les cartes est amélioré."
 
 #: src/app/main/partials/main.tpl.html:43
@@ -188,6 +132,7 @@ msgid "Last changes"
 msgstr "Derniers changements"
 
 #: src/app/deliver/partials/advanced.tpl.html:17
+#: src/app/deliver/partials/simple.tpl.html:7
 msgid "Load"
 msgstr "Ouvrir"
 
@@ -196,9 +141,244 @@ msgid "Name"
 msgstr "Nom"
 
 #: src/app/deliver/partials/advanced.tpl.html:23
+#: src/app/deliver/partials/simple.tpl.html:12
 msgid "Save"
 msgstr "Enregistrer"
 
 #: src/app/main/partials/main.tpl.html:3
 msgid "Welcome in this tool."
 msgstr "Bienvenue sur cet outil."
+
+#: src/app/deliver/partials/advanced.tpl.html:118
+msgid "Add a card"
+msgstr "Ajouter une carte"
+
+#: src/app/deliver/partials/advanced.tpl.html:142
+msgid "All cards back"
+msgstr "Dos pour toutes les cartes"
+
+#: src/app/deliver/partials/advanced.tpl.html:135
+msgid "All cards count"
+msgstr "Nombre pour toutes les cartes"
+
+#: src/app/deliver/partials/advanced.tpl.html:152
+msgid "Apply"
+msgstr "Appliquer"
+
+#: src/app/deliver/partials/advanced.tpl.html:150
+msgid "Apply count and back to all cards."
+msgstr "Appliquer le nombre et le dos à toutes les cartes."
+
+#: src/app/deliver/partials/advanced.tpl.html:37
+msgid "Author"
+msgstr "Auteur"
+
+#: src/app/deliver/partials/advanced.tpl.html:93
+msgid "Back URL (optional)"
+msgstr "URL pour le verso (facultatif)"
+
+#: src/app/deliver/partials/advanced.tpl.html:206
+msgid "Background color (Back)"
+msgstr "Couleur de fond (Verso)"
+
+#: src/app/deliver/partials/advanced.tpl.html:202
+msgid "Background color (Front)"
+msgstr "Couleur de fond (Recto)"
+
+#: src/app/deliver/partials/advanced.tpl.html:168
+#: src/app/deliver/partials/simple.tpl.html:39
+msgid "Card back"
+msgstr "Dos de carte"
+
+#: src/app/deliver/partials/advanced.tpl.html:190
+#: src/app/deliver/partials/simple.tpl.html:61
+msgid "Card height (inches)"
+msgstr "Hauteur de carte (pouces)"
+
+#: src/app/deliver/partials/advanced.tpl.html:186
+#: src/app/deliver/partials/simple.tpl.html:57
+msgid "Card width (inches)"
+msgstr "Largeur de carte (pouces)"
+
+#: src/app/deliver/partials/advanced.tpl.html:71
+#: src/app/deliver/partials/simple.tpl.html:27
+msgid "Clear"
+msgstr "Vider"
+
+#: src/app/deliver/partials/advanced.tpl.html:69
+#: src/app/deliver/partials/simple.tpl.html:25
+msgid "Clear the URL list field."
+msgstr "Vider la liste des URLs."
+
+#: src/app/deliver/partials/advanced.tpl.html:7
+msgid "Clic to show/hide game description."
+msgstr "Cliquer pour afficher/marquer la description du jeu."
+
+#: src/app/deliver/partials/advanced.tpl.html:180
+#: src/app/deliver/partials/simple.tpl.html:51
+msgid "Columns"
+msgstr "Colonnes"
+
+#: src/app/deliver/partials/advanced.tpl.html:100
+msgid "Count (how many copies, optional)"
+msgstr ""
+
+#: src/app/deliver/partials/advanced.tpl.html:66
+#: src/app/deliver/partials/simple.tpl.html:22
+msgid "Create a deck"
+msgstr "Créer un paquet"
+
+#: src/app/deliver/partials/advanced.tpl.html:64
+#: src/app/deliver/partials/simple.tpl.html:20
+msgid "Create a deck from this URL list."
+msgstr "Créer un paquet avec cette liste d'URL"
+
+#: src/app/deliver/partials/advanced.tpl.html:59
+msgid "Create a new deck using image URLs"
+msgstr "Créer un nouveau paquet en utilisant des URLs d'images"
+
+#: src/app/deliver/partials/advanced.tpl.html:128
+msgid "Deck name"
+msgstr "Nom du paquet"
+
+#: src/app/deliver/partials/advanced.tpl.html:271
+msgid "Don't forget to turn margins off when printing and to\n"
+"      choose the same paper size you've chosen here."
+msgstr "N'oubliez pas de désactiver les marges d'impression et de choisir le même format de papier que celui sélectionné ici."
+
+#: src/app/deliver/partials/simple.tpl.html:83
+msgid "Don't forget to turn margins off when printing and to choose the\n"
+"      same paper size you've chosen here."
+msgstr "N'oubliez pas de désactiver les marges d'impression et de choisir le même format de papier que celui sélectionné ici."
+
+#: src/app/deliver/partials/advanced.tpl.html:86
+msgid "Front URL"
+msgstr "URL du recto"
+
+#: src/app/deliver/partials/advanced.tpl.html:172
+#: src/app/deliver/partials/simple.tpl.html:43
+msgid "Front and back on the same page, side by side."
+msgstr "Recto et verso sur la même page, côte à côte."
+
+#: src/app/deliver/partials/advanced.tpl.html:44
+msgid "Game description"
+msgstr "Description du jeu"
+
+#: src/app/deliver/partials/advanced.tpl.html:194
+msgid "Horizontal margin (inches)"
+msgstr "Marge horizontale (pouces)"
+
+#: src/app/deliver/partials/simple.tpl.html:15
+msgid "Image URLs"
+msgstr "URLs d'images"
+
+#: src/app/deliver/partials/advanced.tpl.html:216
+msgid "Image height (inches)"
+msgstr "Hauteur de l'image (pouces)"
+
+#: src/app/deliver/partials/advanced.tpl.html:220
+msgid "Image horizontal shift (inches)"
+msgstr "Décalage horizontal (pouces)"
+
+#: src/app/deliver/partials/advanced.tpl.html:224
+msgid "Image vertical shift (inches)"
+msgstr "Décalage vertical (pouces)"
+
+#: src/app/deliver/partials/advanced.tpl.html:212
+msgid "Image width (inches)"
+msgstr "Largeur de l'image (pouces)"
+
+#: src/app/deliver/partials/advanced.tpl.html:256
+msgid "JSON Url"
+msgstr "URL du JSON"
+
+#: src/app/deliver/partials/advanced.tpl.html:18
+#: src/app/deliver/partials/simple.tpl.html:5
+msgid "Load a JSON file generated by this app."
+msgstr "Ouvrir un JSON généré par cette application."
+
+#: src/app/deliver/partials/advanced.tpl.html:242
+msgid "Margin with cards (inches)"
+msgstr ""
+
+#: src/app/deliver/partials/advanced.tpl.html:79
+msgid "Name (optional)"
+msgstr "Nom (facultatif)"
+
+#: src/app/deliver/partials/advanced.tpl.html:170
+#: src/app/deliver/partials/simple.tpl.html:41
+msgid "No back"
+msgstr "Pas de verso"
+
+#: src/app/deliver/partials/advanced.tpl.html:171
+#: src/app/deliver/partials/simple.tpl.html:42
+msgid "One page with front side, the next one with back side."
+msgstr "Recto sur une page, verso sur la suivante"
+
+#: src/app/deliver/partials/advanced.tpl.html:55
+msgid "Page break between decks"
+msgstr "Saut de page entre les paquets"
+
+#: src/app/deliver/partials/advanced.tpl.html:161
+#: src/app/deliver/partials/simple.tpl.html:32
+msgid "Paper size"
+msgstr "Format du papier"
+
+#: src/app/deliver/partials/advanced.tpl.html:61
+#: src/app/deliver/partials/simple.tpl.html:17
+msgid "Paste a list of image URLs. Each URL will be a distinct card."
+msgstr ""
+
+#: src/app/deliver/partials/advanced.tpl.html:269
+#: src/app/deliver/partials/simple.tpl.html:81
+msgid "Print"
+msgstr ""
+
+#: src/app/deliver/partials/advanced.tpl.html:108
+msgid "Remove this card."
+msgstr ""
+
+#: src/app/deliver/partials/advanced.tpl.html:121
+msgid "Remove this deck."
+msgstr ""
+
+#: src/app/deliver/partials/advanced.tpl.html:176
+#: src/app/deliver/partials/simple.tpl.html:47
+msgid "Rows"
+msgstr ""
+
+#: src/app/deliver/partials/advanced.tpl.html:24
+#: src/app/deliver/partials/simple.tpl.html:10
+msgid "Save to a JSON file that can be shared."
+msgstr ""
+
+#: src/app/deliver/partials/advanced.tpl.html:248
+msgid "Show boundaries"
+msgstr ""
+
+#: src/app/deliver/partials/advanced.tpl.html:252
+msgid "Show image URL"
+msgstr ""
+
+#: src/app/deliver/partials/advanced.tpl.html:234
+#: src/app/deliver/partials/simple.tpl.html:71
+msgid "Show on back page"
+msgstr ""
+
+#: src/app/deliver/partials/advanced.tpl.html:230
+#: src/app/deliver/partials/simple.tpl.html:67
+msgid "Show on front page"
+msgstr ""
+
+#: src/app/deliver/partials/advanced.tpl.html:238
+msgid "Thickness (inches)"
+msgstr ""
+
+#: src/app/deliver/partials/advanced.tpl.html:198
+msgid "Vertical margin (inches)"
+msgstr ""
+
+#: src/app/deliver/partials/advanced.tpl.html:46
+msgid "You can add a game description, with links to the rules or other components, to your website..."
+msgstr ""
+
