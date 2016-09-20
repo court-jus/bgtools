@@ -43,7 +43,7 @@ angular
   })
   .run(function(gettextCatalog) {
     gettextCatalog.setCurrentLanguage('fr_FR');
-    gettextCatalog.debug = true;
+    gettextCatalog.debug = false;
   })
 
 ;

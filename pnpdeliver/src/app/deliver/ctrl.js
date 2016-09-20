@@ -136,6 +136,15 @@ angular.module('pnpdeliverApp')
     $scope.range = function(num) {
       return new Array(num);
     };
+    $scope.toggleCropmarks = function() {
+      if ($scope.model.cropmarks.showOnBack || $scope.model.cropmarks.showOnFront) {
+        $scope.model.cropmarks.showOnBack = false;
+        $scope.model.cropmarks.showOnFront = false;
+      } else {
+        $scope.model.cropmarks.showOnBack = true;
+        $scope.model.cropmarks.showOnFront = true;
+      }
+    };
     if ($scope.othermodel.distantJson) {
       $scope.loadJson();
     }
@@ -143,6 +152,7 @@ angular.module('pnpdeliverApp')
       if (angular.isUndefined(n)) {
         return;
       }
+      /*
       if (((n.backFormat === 'sidebyside' && o.backFormat !== 'sidebyside') ||
            (n.backFormat !== 'sidebyside' && o.backFormat === 'sidebyside')) &&
           (angular.isDefined(o.backFormat))) {
@@ -153,6 +163,7 @@ angular.module('pnpdeliverApp')
         $scope.model.imageHShift += ($scope.model.cardWidth - $scope.model.cardHeight) / 2;
         $scope.model.imageVShift += ($scope.model.cardHeight - $scope.model.cardWidth) / 2;
       }
+      */
       $scope.model.pages = [];
       var currentPage = [],
           defaultCard = {
